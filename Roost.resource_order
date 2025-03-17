@@ -8,8 +8,6 @@
   "ResourceOrderSettings":[
     {"name":"obj_player","order":1,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
-    {"name":"m_controls","order":2,"path":"scripts/m_controls/m_controls.yy",},
-    {"name":"s_player_animation","order":1,"path":"scripts/s_player_animation/s_player_animation.yy",},
     {"name":"spr_player_down","order":2,"path":"sprites/spr_player_down/spr_player_down.yy",},
     {"name":"spr_player_left","order":4,"path":"sprites/spr_player_left/spr_player_left.yy",},
     {"name":"spr_player_right","order":3,"path":"sprites/spr_player_right/spr_player_right.yy",},
