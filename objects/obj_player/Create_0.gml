@@ -1,5 +1,5 @@
 // movement
-move_sp = 2;
+move_sp = 3;
 
 // animation
 sprite = [spr_player_right
