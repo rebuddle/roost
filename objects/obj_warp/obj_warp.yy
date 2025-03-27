@@ -9,8 +9,8 @@
   "name":"obj_warp",
   "overriddenProperties":[],
   "parent":{
-    "name":"Warping",
-    "path":"folders/Map/Warping.yy",
+    "name":"Collisions",
+    "path":"folders/Collisions.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -35,5 +35,5 @@
     "path":"sprites/spr_warp/spr_warp.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

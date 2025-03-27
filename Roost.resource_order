@@ -2,7 +2,6 @@
   "FolderOrderSettings":[
     {"name":"Collisions","order":12,"path":"folders/Collisions.yy",},
     {"name":"Map","order":13,"path":"folders/Map.yy",},
-    {"name":"Warping","order":2,"path":"folders/Map/Warping.yy",},
     {"name":"Tilesets","order":1,"path":"folders/Map/Tilesets.yy",},
     {"name":"Players","order":11,"path":"folders/Players.yy",},
     {"name":"Rooms","order":10,"path":"folders/Rooms.yy",},
@@ -11,11 +10,12 @@
   "ResourceOrderSettings":[
     {"name":"obj_player","order":1,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
-    {"name":"obj_warp","order":1,"path":"objects/obj_warp/obj_warp.yy",},
+    {"name":"obj_warp","order":2,"path":"objects/obj_warp/obj_warp.yy",},
     {"name":"rm_arena","order":1,"path":"rooms/rm_arena/rm_arena.yy",},
     {"name":"spr_player_down","order":2,"path":"sprites/spr_player_down/spr_player_down.yy",},
     {"name":"spr_player_left","order":3,"path":"sprites/spr_player_left/spr_player_left.yy",},
     {"name":"spr_player_right","order":4,"path":"sprites/spr_player_right/spr_player_right.yy",},
     {"name":"spr_playground1","order":1,"path":"sprites/spr_playground1/spr_playground1.yy",},
+    {"name":"spr_warp","order":3,"path":"sprites/spr_warp/spr_warp.yy",},
   ],
 }

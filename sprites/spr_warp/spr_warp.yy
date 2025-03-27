@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Warping",
-    "path":"folders/Map/Warping.yy",
+    "name":"Collisions",
+    "path":"folders/Collisions.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
