@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"_player_movement_backup",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"_player_movement_backup",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
