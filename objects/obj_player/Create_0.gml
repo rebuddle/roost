@@ -5,12 +5,15 @@ dash_sp = 4;
 dash_cd = 0;
 horz = 0;
 vert = 0;
+dkey = 0;
 
+/*
 sprite = [spr_player_right
 		, spr_player_up
 		, spr_player_left
 		, spr_player_down];
-		
+*/
+
 
 // player movement function state
 player_movement = function() {
@@ -24,9 +27,8 @@ player_movement = function() {
 	var _ysp = lengthdir_y(_spd, _mdir);
 	
 	// animation
-	if !(horz == 0 && vert == 0) {
-		var _face = round(_mdir/90)%4;
-		sprite_index = sprite[_face];
+	if abs(horz) > 0 || abs(vert) > 0 {
+		sprite_index = sprite[round(_mdir/90)%4];
 	}
 
 	// collision
@@ -50,6 +52,10 @@ player_movement = function() {
 idle_state = new state();
 
 idle_state.start = function(){
+	sprite = [spr_player_right
+		, spr_player_up
+		, spr_player_left
+		, spr_player_down];
 	_current_state = idle_state.step;
 }
 
@@ -72,35 +78,44 @@ idle_state.stop = function() {
 move_state = new state();
 
 move_state.start = function() {
+	sprite = [spr_player_right
+		, spr_player_up
+		, spr_player_left
+		, spr_player_down];
 	move_sp = 4;
 	_current_state = move_state.step;
 }
 
 move_state.step = function() {
-	show_debug_message("move step...");
 	// get player input
 	horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")))*move_sp;
 	vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")))*move_sp;
-	_dkey = keyboard_check(vk_space);
+	dkey = keyboard_check(vk_space);
 			
 	// trigger dash state
-	if (!dash_cd && _dkey) && ((horz) || (vert)) {
+	if (!dash_cd && dkey) && (abs(horz) > 0 || abs(vert) > 0) {
+		show_debug_message("invoke dash...")
 		move_state.stop();
 		_current_state = dash_state.start;
 		return;
 	}
-			
+	
 	// invoke player movement
-	player_movement();
+	player_movement();	
+		
 }
 
 // DASH
 dash_state = new state();
 
 dash_state.start = function() {
+	sprite = [spr_player_dash
+		, spr_player_dash
+		, spr_player_dash
+		, spr_player_dash];
 	dash_cd = 40;
 	dash_dur = 8;
-	move_sp = 12;
+	move_sp = 10;
 	_current_state = dash_state.step;
 }
 

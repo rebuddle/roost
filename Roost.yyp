@@ -33,6 +33,7 @@
     {"id":{"name":"_MACROS","path":"scripts/_MACROS/_MACROS.yy",},},
     {"id":{"name":"_state_constructor","path":"scripts/_state_constructor/_state_constructor.yy",},},
     {"id":{"name":"spr_player_backup","path":"sprites/spr_player_backup/spr_player_backup.yy",},},
+    {"id":{"name":"spr_player_dash","path":"sprites/spr_player_dash/spr_player_dash.yy",},},
     {"id":{"name":"spr_player_down","path":"sprites/spr_player_down/spr_player_down.yy",},},
     {"id":{"name":"spr_player_left","path":"sprites/spr_player_left/spr_player_left.yy",},},
     {"id":{"name":"spr_player_right","path":"sprites/spr_player_right/spr_player_right.yy",},},

@@ -15,6 +15,7 @@
     {"name":"_MACROS","order":3,"path":"scripts/_MACROS/_MACROS.yy",},
     {"name":"_state_constructor","order":2,"path":"scripts/_state_constructor/_state_constructor.yy",},
     {"name":"spr_player_backup","order":5,"path":"sprites/spr_player_backup/spr_player_backup.yy",},
+    {"name":"spr_player_dash","order":9,"path":"sprites/spr_player_dash/spr_player_dash.yy",},
     {"name":"spr_player_down","order":6,"path":"sprites/spr_player_down/spr_player_down.yy",},
     {"name":"spr_player_left","order":7,"path":"sprites/spr_player_left/spr_player_left.yy",},
     {"name":"spr_player_right","order":8,"path":"sprites/spr_player_right/spr_player_right.yy",},
