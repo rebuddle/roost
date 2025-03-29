@@ -1,4 +1,3 @@
-/*
 // macros
 #macro RIGHT 0
 #macro UP 1
@@ -64,4 +63,3 @@ function player_dash(move_sp, sprite, _horz, _vert){
 	x+=_xsp;
 	y+=_ysp;
 }
-*/
