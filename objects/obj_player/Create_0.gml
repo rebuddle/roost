@@ -94,7 +94,6 @@ move_state.step = function() {
 			
 	// trigger dash state
 	if (!dash_cd && dkey) && (abs(horz) > 0 || abs(vert) > 0) {
-		show_debug_message("invoke dash...")
 		move_state.stop();
 		_current_state = dash_state.start;
 		return;
@@ -114,8 +113,8 @@ dash_state.start = function() {
 		, spr_player_dash
 		, spr_player_dash];
 	dash_cd = 40;
-	dash_dur = 8;
-	move_sp = 10;
+	dash_dur = 12;
+	move_sp = 8;
 	_current_state = dash_state.step;
 }
 

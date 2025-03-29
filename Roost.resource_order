@@ -1,6 +1,7 @@
 {
   "FolderOrderSettings":[
     {"name":"Collisions","order":12,"path":"folders/Collisions.yy",},
+    {"name":"Attacks","order":14,"path":"folders/Attacks.yy",},
     {"name":"Map","order":13,"path":"folders/Map.yy",},
     {"name":"Tilesets","order":1,"path":"folders/Map/Tilesets.yy",},
     {"name":"Players","order":11,"path":"folders/Players.yy",},
@@ -8,6 +9,7 @@
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"obj_fireball","order":1,"path":"objects/obj_fireball/obj_fireball.yy",},
     {"name":"obj_player","order":1,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
     {"name":"obj_warp","order":2,"path":"objects/obj_warp/obj_warp.yy",},
