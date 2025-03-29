@@ -63,6 +63,12 @@ idle_state.step = function() {
 	// get player input
 	horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
 	vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
+	akey = mouse_check_button_pressed(mb_left);
+	
+	if akey {
+		idle_state.stop();
+		_current_state = attack_state.start;
+	}
 	
 	// trigger movement state
 	if (abs(horz) > 0 || abs(vert) > 0) {
@@ -91,12 +97,25 @@ move_state.step = function() {
 	horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")))*move_sp;
 	vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")))*move_sp;
 	dkey = keyboard_check(vk_space);
+	akey = mouse_check_button_pressed(mb_left);
 			
+	// trigger attack state
+	if akey {
+		move_state.stop();
+		_current_state = attack_state.start;
+	}
+	
 	// trigger dash state
 	if (!dash_cd && dkey) && (abs(horz) > 0 || abs(vert) > 0) {
 		move_state.stop();
 		_current_state = dash_state.start;
 		return;
+	}
+	
+	// trigger idle state
+	if (abs(horz) == 0 && abs(vert) == 0) {
+		move_state.stop();
+		_current_state = idle_state.start;
 	}
 	
 	// invoke player movement
@@ -131,6 +150,33 @@ dash_state.step = function() {
 	}	
 }
 
+// ATTACK
+attack_state = new state();
+
+attack_state.start = function() {
+	sprite = [spr_player_right
+		, spr_player_up
+		, spr_player_left
+		, spr_player_down];
+	_current_state = attack_state.step;
+}
+
+attack_state.step = function() {
+	// get player input
+	horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")))*move_sp;
+	vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")))*move_sp;
+	
+	// create attack
+	instance_create_depth(x, y, depth, obj_fireball);
+	
+	if abs(horz) > 0 || abs(vert) > 0 {
+		attack_state.stop();
+		_current_state = move_state.start;
+	} else {
+		attack_state.stop();
+		_current_state = idle_state.start;
+	}
+}
 
 // init state
 _current_state = idle_state.start;
