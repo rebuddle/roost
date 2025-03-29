@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"_player_movement_backup",
+  "%Name":"_state_constructor",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"_player_movement_backup",
+  "name":"_state_constructor",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

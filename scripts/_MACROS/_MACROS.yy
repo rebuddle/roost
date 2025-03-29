@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"_player_movement",
+  "%Name":"_MACROS",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"_player_movement",
+  "name":"_MACROS",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",
