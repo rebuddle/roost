@@ -10,8 +10,8 @@
   },
   "defaultScriptType":1,
   "Folders":[
-    {"$GMFolder":"","%Name":"Collisions","folderPath":"folders/Collisions.yy","name":"Collisions","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Attacks","folderPath":"folders/Attacks.yy","name":"Attacks","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Collisions","folderPath":"folders/Collisions.yy","name":"Collisions","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Map","folderPath":"folders/Map.yy","name":"Map","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tilesets","folderPath":"folders/Map/Tilesets.yy","name":"Tilesets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Players","folderPath":"folders/Players.yy","name":"Players","resourceType":"GMFolder","resourceVersion":"2.0",},

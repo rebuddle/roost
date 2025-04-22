@@ -31,10 +31,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_player_up",
-    "path":"sprites/spr_player_up/spr_player_up.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
