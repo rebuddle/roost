@@ -66,6 +66,7 @@ My initial solution implemented everything in the step phase which worked, but i
 
 To handle this the structure I will follow is below:
 
+**[Script]**
 ```
 // finite state machine constructor
 function state() constructor {
@@ -74,3 +75,54 @@ function state() constructor {
 	stop = function() {};
 }
 ```
+
+**[Create]**
+```
+// #########################
+// [[ Player States ]] #FSM#
+// #########################
+// IDLE
+idle_state = new state();
+
+idle_state.start = function(){
+	sprite = [spr_player_right
+		, spr_player_up
+		, spr_player_left
+		, spr_player_down];
+	_current_state = idle_state.step;
+}
+
+idle_state.step = function() {
+	// get player input
+	horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
+	vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
+	akey = mouse_check_button_pressed(mb_left);
+	
+	if akey {
+		idle_state.stop();
+		_current_state = attack_state.start;
+	}
+	
+	// trigger movement state
+	if (abs(horz) > 0 || abs(vert) > 0) {
+		idle_state.stop();
+		_current_state = move_state.start;
+	}
+}
+
+idle_state.stop = function() {
+}
+
+// init state
+_current_state = idle_state.start;
+```
+
+**[Step]**
+```
+// execute the current state on the state machine
+script_execute(_current_state);
+```
+
+This solution works well, but it forces the stop and step in the step function which results in 1 lost frame.
+
+It also makes it a little confusing on how to manage.
