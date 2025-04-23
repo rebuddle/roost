@@ -27,6 +27,12 @@ move_state = new state(
 		dkey = keyboard_check(vk_space);
 		akey = mouse_check_button_pressed(mb_left);
 		
+		// trigger attack
+		if (akey) {
+			show_debug_message("shoot");
+			instance_create_depth(x, y, depth+1, obj_bullet);
+		}
+		
 		// trigger dash state
 		if (!dash_cd && dkey) && (abs(horz) > 0 || abs(vert) > 0) {
 			fsm.change_state("dash");

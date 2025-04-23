@@ -5,3 +5,7 @@ if (dash_cd > 0) {
 
 // execute fsm
 fsm.step();
+
+if (place_meeting(x, y, obj_bullet)) {
+	instance_destroy();	
+}

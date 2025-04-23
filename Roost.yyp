@@ -28,6 +28,8 @@
   },
   "name":"Roost",
   "resources":[
+    {"id":{"name":"obj_ballspawn","path":"objects/obj_ballspawn/obj_ballspawn.yy",},},
+    {"id":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},},
     {"id":{"name":"obj_fireball","path":"objects/obj_fireball/obj_fireball.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_trail","path":"objects/obj_trail/obj_trail.yy",},},
@@ -38,6 +40,7 @@
     {"id":{"name":"rm_start","path":"rooms/rm_start/rm_start.yy",},},
     {"id":{"name":"_fsm","path":"scripts/_fsm/_fsm.yy",},},
     {"id":{"name":"_player_movement","path":"scripts/_player_movement/_player_movement.yy",},},
+    {"id":{"name":"spr_bullet","path":"sprites/spr_bullet/spr_bullet.yy",},},
     {"id":{"name":"spr_fireball","path":"sprites/spr_fireball/spr_fireball.yy",},},
     {"id":{"name":"spr_player_backup","path":"sprites/spr_player_backup/spr_player_backup.yy",},},
     {"id":{"name":"spr_player_box","path":"sprites/spr_player_box/spr_player_box.yy",},},

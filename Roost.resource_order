@@ -10,6 +10,8 @@
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"obj_ballspawn","order":1,"path":"objects/obj_ballspawn/obj_ballspawn.yy",},
+    {"name":"obj_bullet","order":3,"path":"objects/obj_bullet/obj_bullet.yy",},
     {"name":"obj_fireball","order":1,"path":"objects/obj_fireball/obj_fireball.yy",},
     {"name":"obj_player","order":13,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
@@ -18,6 +20,7 @@
     {"name":"rm_sandbox","order":2,"path":"rooms/rm_sandbox/rm_sandbox.yy",},
     {"name":"_fsm","order":5,"path":"scripts/_fsm/_fsm.yy",},
     {"name":"_player_movement","order":4,"path":"scripts/_player_movement/_player_movement.yy",},
+    {"name":"spr_bullet","order":2,"path":"sprites/spr_bullet/spr_bullet.yy",},
     {"name":"spr_player_backup","order":5,"path":"sprites/spr_player_backup/spr_player_backup.yy",},
     {"name":"spr_player_box","order":12,"path":"sprites/spr_player_box/spr_player_box.yy",},
     {"name":"spr_player_dash","order":9,"path":"sprites/spr_player_dash/spr_player_dash.yy",},
