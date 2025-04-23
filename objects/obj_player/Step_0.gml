@@ -1,5 +1,7 @@
 // cooldowns
-dash_cd = max(dash_cd -1, 0);
+if (dash_cd > 0) {
+	dash_cd--;
+}
 
-// execute the current state on the state machine
-script_execute(_current_state);
+// execute fsm
+fsm.step();
