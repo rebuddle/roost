@@ -8,8 +8,8 @@
   "name":"obj_trail",
   "overriddenProperties":[],
   "parent":{
-    "name":"Effects",
-    "path":"folders/Effects.yy",
+    "name":"Control",
+    "path":"folders/Control.yy",
   },
   "parentObjectId":null,
   "persistent":false,
