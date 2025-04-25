@@ -82,61 +82,96 @@ To handle this the structure I will follow is below:
 
 **[Script]**
 ```
-// finite state machine constructor
-function state() constructor {
-	start = function() {};
-	step = function() {};
-	stop = function() {};
+// state constructor
+function state(_start, _step, _stop) constructor {
+    start = _start != undefined ? _start : function() {};
+    step  = _step  != undefined ? _step  : function() {};
+    stop  = _stop  != undefined ? _stop  : function() {};
 }
+
+// feeds into the finite state machine
+function FSM(_initialState) {
+    return {
+        state: _initialState,
+        states: {},
+
+        add_state: function(_name, _state_obj) {
+            self.states[$ _name] = _state_obj;
+        },
+
+        change_state: function(_new) {
+            var current = self.states[$ self.state];
+            if (current != undefined && current.stop != undefined) {
+                current.stop();
+            }
+
+            self.state = _new;
+
+            var next = self.states[$ self.state];
+            if (next != undefined && next.start != undefined) {
+                next.start();
+            }
+        },
+
+        step: function() {
+            var current = self.states[$ self.state];
+            if (current != undefined && current.step != undefined) {
+                current.step();
+            }
+        },
+
+        stop: function() {
+            var current = self.states[$ self.state];
+            if (current != undefined && current.stop != undefined) {
+                current.stop();
+            }
+        }
+    };
+}
+
 ```
 
 **[Create]**
 ```
-// #########################
-// [[ Player States ]] #FSM#
-// #########################
+// [[ Player States ]]
 // IDLE
-idle_state = new state();
+idle_state = new state(
+    function() { // start
+        sprite = [spr_player_box, spr_player_box, spr_player_box, spr_player_box];
+    },
+    function() { // step
+        horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
+        vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
+		akey = mouse_check_button_pressed(mb_left);
+		
+		// trigger attack
+		if (akey) {
+			instance_create_depth(x, y, depth+1, obj_slash);
+		}
+		
+        if (abs(horz) > 0 || abs(vert) > 0) {
+            fsm.change_state("move");
+        }
+    }
+);
 
-idle_state.start = function(){
-	sprite = [spr_player_right
-		, spr_player_up
-		, spr_player_left
-		, spr_player_down];
-	_current_state = idle_state.step;
-}
+// init FSM
+fsm = FSM(undefined);
 
-idle_state.step = function() {
-	// get player input
-	horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
-	vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
-	akey = mouse_check_button_pressed(mb_left);
-	
-	if akey {
-		idle_state.stop();
-		_current_state = attack_state.start;
-	}
-	
-	// trigger movement state
-	if (abs(horz) > 0 || abs(vert) > 0) {
-		idle_state.stop();
-		_current_state = move_state.start;
-	}
-}
+// add states
+fsm.add_state("idle", idle_state);
 
-idle_state.stop = function() {
-}
-
-// init state
-_current_state = idle_state.start;
+fsm.change_state("idle");
 ```
 
 **[Step]**
 ```
-// execute the current state on the state machine
-script_execute(_current_state);
+// execute fsm
+fsm.step();
 ```
 
 This solution works well, but it forces the stop and step in the step function which results in 1 lost frame.
 
 It also makes it a little confusing on how to manage.
+
+Just updated the state machine above to reflect a good implementation of it. Deals with the overlapping frames and organizes the code well.
