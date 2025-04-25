@@ -26,7 +26,7 @@ git merge <branch-name>
 ```
 
 
-## prototype phase
+## devlog
 **04/22/2025** - I am currently in the prototype phase. I know I want to build out an action rpg (my main motivation is Archvale). However I want to make sure I master each concept along the way. 
 
 Because of this I want to be able to successfully be able to build the following games:
@@ -49,6 +49,20 @@ Componenets:
 
 I beleive that will be the order is the priority of enjoyment from video games.
 
+**04/25/2025** - I have put in alot of changes. The beginnning progress is alot of fun. I'm trying my best to hold back from building out the sprites. It is a very time consuming process and it could all change based on a simple decision of making something more fun.
+
+Changes I decided to implement:
+1. Bigger screen resolution. I'm leaning on 1200 x 900 atm. This could eventually change, but I find this fun.
+
+2. I gave the user an attack and added an simple "chase" enemy. I need to make the enemy smarter, but its a start. It can't even attack yet!!! the enemies have 5 hp so it isn't the easiest super super easy to kill. I want to fight to kill not just get it easy.
+
+3. I changed the score to be on enemy kills. I want to change this but for now it makes sense.
+
+Next steps I really want to counquer is getting an hp system that is visible to the user. So that whenever the game is being played it's thrilling. Low HP fights are the best. Your heart rate is high and the game is exciting.
+
+
+
+# Notes
 ## top-down shooter
 
 ### player movement
