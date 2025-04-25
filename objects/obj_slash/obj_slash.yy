@@ -1,16 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_foodspawn",
+  "%Name":"obj_slash",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_foodspawn",
+  "name":"obj_slash",
   "overriddenProperties":[],
   "parent":{
-    "name":"Quest",
-    "path":"folders/Quest.yy",
+    "name":"Attacks",
+    "path":"folders/Attacks.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,7 +31,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_slash",
+    "path":"sprites/spr_slash/spr_slash.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

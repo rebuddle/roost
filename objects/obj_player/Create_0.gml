@@ -10,6 +10,13 @@ idle_state = new state(
     function() { // step
         horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
         vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
+		akey = mouse_check_button_pressed(mb_left);
+		
+		// trigger attack
+		if (akey) {
+			instance_create_depth(x, y, depth+1, obj_slash);
+		}
+		
         if (abs(horz) > 0 || abs(vert) > 0) {
             fsm.change_state("move");
         }
@@ -29,8 +36,7 @@ move_state = new state(
 		
 		// trigger attack
 		if (akey) {
-			show_debug_message("shoot");
-			instance_create_depth(x, y, depth+1, obj_bullet);
+			instance_create_depth(x, y, depth+1, obj_slash);
 		}
 		
 		// trigger dash state

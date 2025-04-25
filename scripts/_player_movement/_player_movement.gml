@@ -9,9 +9,11 @@ function _player_movement(){
 	var _ysp = lengthdir_y(_spd, _mdir);
 	
 	// animation
+	/*
 	if abs(horz) > 0 || abs(vert) > 0 {
 		sprite_index = sprite[round(_mdir/90)%4];
 	}
+	*/
 
 	// collision
 	if (place_meeting(x+_xsp, y, obj_wall)){

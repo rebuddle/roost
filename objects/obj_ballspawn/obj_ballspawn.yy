@@ -9,8 +9,8 @@
   "name":"obj_ballspawn",
   "overriddenProperties":[],
   "parent":{
-    "name":"Control",
-    "path":"folders/Control.yy",
+    "name":"Quest",
+    "path":"folders/Quest.yy",
   },
   "parentObjectId":null,
   "persistent":false,

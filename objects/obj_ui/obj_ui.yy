@@ -9,8 +9,8 @@
   "name":"obj_ui",
   "overriddenProperties":[],
   "parent":{
-    "name":"Control",
-    "path":"folders/Control.yy",
+    "name":"UI",
+    "path":"folders/UI.yy",
   },
   "parentObjectId":null,
   "persistent":false,

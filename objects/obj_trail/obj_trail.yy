@@ -8,8 +8,8 @@
   "name":"obj_trail",
   "overriddenProperties":[],
   "parent":{
-    "name":"Control",
-    "path":"folders/Control.yy",
+    "name":"Players",
+    "path":"folders/Players.yy",
   },
   "parentObjectId":null,
   "persistent":false,
