@@ -1,6 +1,30 @@
 // variables
 dash_cd = 0;
 
+// player stats
+player_manager = {
+	// resource stats
+	max_hp: 12,
+	hp: 12,
+	max_mana: 100,
+	mana: 100,
+	
+	// base stats
+	strength: 10,
+	defence: 10,
+	speed: 10,
+	wisdom: 10,
+	
+	// gear
+	weapon: "iron_dagger",
+	helmet: "",
+	armor: "",
+	ring: ""
+}
+
+// change weapon for debug
+//player_manager.weapon = "iron_sword";
+
 // [[ Player States ]]
 // IDLE
 idle_state = new state(
@@ -14,7 +38,7 @@ idle_state = new state(
 		
 		// trigger attack
 		if (akey) {
-			instance_create_depth(x, y, depth+1, obj_slash);
+			global.weapon_list[$ player_manager.weapon].attack(x, y, depth);
 		}
 		
         if (abs(horz) > 0 || abs(vert) > 0) {
@@ -36,7 +60,7 @@ move_state = new state(
 		
 		// trigger attack
 		if (akey) {
-			instance_create_depth(x, y, depth+1, obj_slash);
+			global.weapon_list[$ player_manager.weapon].attack(x, y, depth);
 		}
 		
 		// trigger dash state

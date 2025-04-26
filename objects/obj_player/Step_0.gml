@@ -8,17 +8,17 @@ fsm.step();
 
 // hit with bullet
 if (place_meeting(x, y, obj_bullet) && fsm.state != "dash") {
-	global.hp--;
+	player_manager.hp--;
 	instance_destroy(instance_nearest(x,y,obj_bullet));
 }
 
 // hit by enemy
 if (place_meeting(x, y, obj_enemy1) && fsm.state != "dash") {
-	global.hp--;
+	player_manager.hp--;
 	instance_destroy(instance_nearest(x,y,obj_enemy1));	
 }
 
 // game over!!
-if global.hp <=0 {
+if player_manager.hp <=0 {
 	instance_destroy();
 }
