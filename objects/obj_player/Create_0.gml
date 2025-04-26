@@ -11,9 +11,10 @@ player_manager = {
 	
 	// base stats
 	strength: 10,
-	defence: 10,
-	speed: 10,
+	agility: 10,
+	vitality: 10,
 	wisdom: 10,
+	move_speed: 8,
 	
 	// gear
 	weapon: "iron_dagger",
@@ -50,11 +51,11 @@ idle_state = new state(
 // MOVE
 move_state = new state(
     function() { 
-		move_sp = 8; 
+		player_manager.move_speed = 8; 
 	},
     function() {
-        horz = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * move_sp;
-        vert = (keyboard_check(ord("S")) - keyboard_check(ord("W"))) * move_sp;
+        horz = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * player_manager.move_speed;
+        vert = (keyboard_check(ord("S")) - keyboard_check(ord("W"))) * player_manager.move_speed;
 		dkey = keyboard_check(vk_space);
 		akey = mouse_check_button_pressed(mb_left);
 		
@@ -75,7 +76,7 @@ move_state = new state(
 			return;
         }
 
-        _player_movement();
+        _script_movement(horz, vert, player_manager.move_speed);
     }
 );
 
@@ -84,11 +85,11 @@ dash_state = new state(
 	function() {
 		dash_cd = 30;
 		dash_dur = 12;
-		move_sp = 16;
+		player_manager.move_speed = 16;
 	},
 	function() {
 		// dash
-		_player_movement();
+		_script_movement(horz, vert, player_manager.move_speed);
 		
 		// trail effect
 		with (instance_create_depth(x, y, depth+1, obj_trail)){

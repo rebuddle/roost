@@ -13,9 +13,9 @@ if (place_meeting(x, y, obj_bullet) && fsm.state != "dash") {
 }
 
 // hit by enemy
-if (place_meeting(x, y, obj_enemy1) && fsm.state != "dash") {
+if (place_meeting(x, y, obj_enemy) && fsm.state != "dash") {
 	player_manager.hp--;
-	instance_destroy(instance_nearest(x,y,obj_enemy1));	
+	instance_destroy(instance_nearest(x,y,obj_enemy));	
 }
 
 // game over!!

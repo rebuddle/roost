@@ -1,10 +1,10 @@
-function _player_movement(){
+function _script_movement(horz, vert, move_speed){
 	var _mdir = point_direction(0, 0, horz, vert);
 	// normalize distance
 	var _dist = point_distance(0, 0, horz, vert);
 	_dist = clamp(_dist, 0, 1);
 	// translate to x and y
-	var _spd = move_sp * _dist;
+	var _spd = move_speed * _dist;
 	var _xsp = lengthdir_x(_spd, _mdir);
 	var _ysp = lengthdir_y(_spd, _mdir);
 	

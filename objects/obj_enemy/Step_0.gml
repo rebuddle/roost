@@ -15,5 +15,5 @@ if (instance_exists(obj_player)){
 	// movement
 	horz = obj_player.x - x;
 	vert = obj_player.y - y;
-	_player_movement()
+	_script_movement(horz, vert, move_speed);
 }
