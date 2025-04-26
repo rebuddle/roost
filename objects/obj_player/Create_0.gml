@@ -92,7 +92,7 @@ dash_state = new state(
 		_script_movement(horz, vert, player_manager.move_speed);
 		
 		// trail effect
-		with (instance_create_depth(x, y, depth+1, obj_trail)){
+		with (instance_create_depth(x, y, depth+1, obj_player_dash_trail)){
 			sprite_index = other.sprite_index;
 			//image_blend = c_silver;
 			image_blend = c_fuchsia;

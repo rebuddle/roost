@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_trail",
+  "%Name":"obj_player_dash_trail",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_trail",
+  "name":"obj_player_dash_trail",
   "overriddenProperties":[],
   "parent":{
     "name":"Players",
