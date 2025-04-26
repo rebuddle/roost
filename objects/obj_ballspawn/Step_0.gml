@@ -27,5 +27,5 @@ if (spwn_cd < 0) {
 	}
 	
 	// reset cd
-	spwn_cd = 10;
+	spwn_cd = 5;
 }
