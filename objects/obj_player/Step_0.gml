@@ -7,9 +7,9 @@ if (dash_cd > 0) {
 fsm.step();
 
 // hit with bullet
-if (place_meeting(x, y, obj_bullet) && fsm.state != "dash") {
-	player_manager.hp--;
-	instance_destroy(instance_nearest(x,y,obj_bullet));
+if (place_meeting(x, y, obj_enemy_attack) && fsm.state != "dash") {
+	player_manager.hp -= max(irandom(obj_enemy_attack.damage) - irandom(player_manager.defence), 0);
+	instance_destroy(instance_nearest(x,y,obj_enemy_attack));
 }
 
 // hit by enemy

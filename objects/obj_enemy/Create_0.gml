@@ -3,6 +3,12 @@ horz = 0;
 vert = 0;
 
 // modifiable vars
-move_speed = 5;
 max_hp = 5;
 hp = max_hp;
+move_speed = 5;
+damage = 1;
+attack_speed = 15; 
+defence = 1;
+
+// attack
+weapon = "enemy_strike";

@@ -6,21 +6,13 @@ player_manager = {
 	// resource stats
 	max_hp: 12,
 	hp: 12,
-	max_mana: 100,
-	mana: 100,
 	
 	// base stats
-	strength: 10,
-	agility: 10,
-	vitality: 10,
-	wisdom: 10,
+	defence: 0,
 	move_speed: 8,
 	
 	// gear
-	weapon: "iron_dagger",
-	helmet: "",
-	armor: "",
-	ring: ""
+	weapon: "iron_dagger"
 }
 
 // change weapon for debug
@@ -35,7 +27,7 @@ idle_state = new state(
     function() { // step
         horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
         vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
-		akey = mouse_check_button_pressed(mb_left);
+		akey = mouse_check_button(mb_left);
 		
 		// trigger attack
 		if (akey) {
@@ -57,7 +49,7 @@ move_state = new state(
         horz = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * player_manager.move_speed;
         vert = (keyboard_check(ord("S")) - keyboard_check(ord("W"))) * player_manager.move_speed;
 		dkey = keyboard_check(vk_space);
-		akey = mouse_check_button_pressed(mb_left);
+		akey = mouse_check_button(mb_left);
 		
 		// trigger attack
 		if (akey) {

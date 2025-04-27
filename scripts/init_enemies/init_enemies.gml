@@ -17,15 +17,6 @@ function _add_enemy(_name, _max_hp, _move_speed, _damage, _attack_speed, _defenc
 			enemy.move_speed = self.move_speed;
 			enemy.sprite_index = self.enemy_sprite;
 		}
-		
-		/*
-        attack: function(_x, _y, _depth) {
-			var slash = instance_create_depth(_x, _y, _depth+1, self.slash_object);
-			slash.alarm[0] = self.range;
-			slash.spd = self.attack_speed;
-			slash.sprite_index = self.slash_sprite;
-        }
-		*/
     };
 }
 
