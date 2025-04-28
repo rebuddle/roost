@@ -14,6 +14,13 @@ function _add_weapon(_name, _damage, _attack_speed, _slash_speed, _range, _slash
         slash_object: _slash_object,
 		slash_sprite: _slash_sprite,
 		
+		owner: noone,
+		
+		// who is wielding the weapon?
+		equip: function(_obj) {
+			self.owner = _obj;
+		},
+		
 		// internal variables
 		attack_cooldown: 0,
         
