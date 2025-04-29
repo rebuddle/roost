@@ -1,6 +1,3 @@
-// variables
-dash_cd = 0;
-
 // probably unecessary but could be helpful to have indicators
 enum gear {
 	lhand,
@@ -73,61 +70,79 @@ player_manager = {
 	
 	// attack lhand
 	lhand_cooldown: 0,
-	lhand_attack: function(_x, _y, _depth){
-		if (!self.lhand) {
-			return;
-		}
-		
+	rhand_cooldown: 0,
+	dash_cooldown: 0,
+	
+	step_cooldowns: function() {
 		// update cooldown
 		if lhand_cooldown > 0 {
 			lhand_cooldown--;
 		}
-		
-		// create slash
-		if (lhand_cooldown <= 0) {
-			var slash = instance_create_depth(_x, _y, _depth, obj_slash);
-			// update slash properties
-			slash.alarm[0] = self.lhand.range;
-			slash.sprite_index = self.lhand.slash_sprite;
-			slash.damage = (self.lhand.base_damage + self.attack);
-			slash.spd = self.move_speed;
-			
-			// add cooldown of attack
-			self.lhand_cooldown = 300/(self.lhand.attack_speed + self.dexterity);
+		if rhand_cooldown > 0 {
+			rhand_cooldown--;	
+		}
+		if dash_cooldown > 0 {
+			dash_cooldown--;
 		}
 	},
 	
-	// attack rhand
-	rhand_cooldown: 0,
-	rhand_attack: function(_x, _y, _depth){
-		if (!self.rhand) {
+	set_cooldown: function(cooldown, amount) {
+		// set cooldown
+		switch(cooldown){
+			case gear.lhand:
+				self.lhand_cooldown = amount;
+				break;
+			case gear.rhand:
+				self.rhand_cooldown = amount;
+				break;
+		}
+	},
+	
+	use_attack: function(hand, _x, _y, _depth){
+		// init vars
+		var weapon = noone;
+		var weapon_cooldown;
+		
+		// pick attack
+		switch(hand){
+			case gear.lhand:
+				weapon = self.lhand;
+				weapon_cooldown = self.lhand_cooldown;
+				break;
+			case gear.rhand:
+				weapon = self.rhand;
+				weapon_cooldown = self.rhand_cooldown;
+				break;
+		}
+		
+		// exit if noone
+		if (!weapon) {
 			return;
 		}
 		
-		// update cooldown
-		if rhand_cooldown > 0 {
-			rhand_cooldown--;
-		}
-		
 		// create slash
-		if (rhand_cooldown <= 0) {
-			var slash = instance_create_depth(_x, _y, _depth, obj_slash);
+		if (weapon_cooldown <= 0) {
+			var slash = instance_create_depth(_x, _y, _depth, weapon.slash_object);
 			// update slash properties
-			slash.alarm[0] = self.rhand.range;
-			slash.sprite_index = self.rhand.slash_sprite;
-			slash.damage = (self.rhand.base_damage + self.attack);
+			slash.alarm[0] = weapon.range;
+			slash.sprite_index = weapon.slash_sprite;
+			slash.damage = (weapon.base_damage + self.attack);
 			slash.spd = self.move_speed;
 			
 			// add cooldown of attack
-			self.rhand_cooldown = 300/(self.rhand.attack_speed + self.dexterity);
+			weapon_cooldown = 300/(weapon.attack_speed + self.dexterity);
+			self.set_cooldown(hand, weapon_cooldown);
 		}
+		
+		
+		
 	}
 	
 }
 
 // equip an iron dagger!
-player_manager.equip(gear.lhand, "iron_dagger");
-player_manager.equip(gear.rhand, "iron_sword");
+player_manager.equip(gear.lhand, "sword");
+player_manager.equip(gear.rhand, "bow");
 
 // player states: idle, move, dash
 // IDLE
@@ -138,13 +153,18 @@ idle_state = new state(
     function() { // step
         horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
         vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
-		akey = mouse_check_button(mb_left);
+		lattkey = mouse_check_button(mb_left);
+		rattkey = mouse_check_button(mb_right);
 		
 		// trigger attack
-		if (akey) {
-			player_manager.lhand_attack(x, y, depth+1);
+		if (lattkey) {
+			player_manager.use_attack(gear.lhand, x, y, depth+1);
+		}
+		if (rattkey) {
+			player_manager.use_attack(gear.rhand, x, y, depth+1);
 		}
 		
+		// trigger movement
         if (abs(horz) > 0 || abs(vert) > 0) {
             fsm.change_state("move");
         }
@@ -160,15 +180,19 @@ move_state = new state(
         horz = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * player_manager.move_speed;
         vert = (keyboard_check(ord("S")) - keyboard_check(ord("W"))) * player_manager.move_speed;
 		dkey = keyboard_check(vk_space);
-		akey = mouse_check_button(mb_left);
+		lattkey = mouse_check_button(mb_left);
+		rattkey = mouse_check_button(mb_right);
 		
 		// trigger attack
-		if (akey) {
-			player_manager.lhand_attack(x, y, depth+1);
+		if (lattkey) {
+			player_manager.use_attack(gear.lhand, x, y, depth+1);
+		}
+		if (rattkey) {
+			player_manager.use_attack(gear.rhand, x, y, depth+1);
 		}
 		
 		// trigger dash state
-		if (!dash_cd && dkey) && (abs(horz) > 0 || abs(vert) > 0) {
+		if (!player_manager.dash_cooldown && dkey) && (abs(horz) > 0 || abs(vert) > 0) {
 			fsm.change_state("dash");
 			return;
 		}
@@ -186,8 +210,8 @@ move_state = new state(
 // DASH
 dash_state = new state(
 	function() {
-		dash_cd = 30;
-		dash_dur = 12;
+		player_manager.dash_cooldown = 30;
+		dash_dur = player_manager.move_speed * 1.5;
 		player_manager.move_speed = 16;
 	},
 	function() {

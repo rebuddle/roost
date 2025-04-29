@@ -1,7 +1,5 @@
 // cooldowns
-if (dash_cd > 0) {
-	dash_cd--;
-}
+player_manager.step_cooldowns();
 
 // execute fsm
 fsm.step();
