@@ -1,24 +1,135 @@
 // variables
 dash_cd = 0;
 
-// player stats
+// probably unecessary but could be helpful to have indicators
+enum gear {
+	lhand,
+	rhand,
+	helm,
+	armor,
+	boots
+}
+enum stat {
+	hp,
+	mana,
+	attack,
+	dexterity,
+	defence,
+	vitality,
+	wisdom,
+	move_speed
+}
+
+// player manager: levels, stats, and gear
 player_manager = {
+	// level
+	level: 1,
+	experience: 0,
+	experience_to_next: 100,
+	
 	// resource stats
 	max_hp: 12,
 	hp: 12,
+	max_mana: 100,
+	mana: 100,
 	
 	// base stats
-	defence: 0,
-	move_speed: 8,
+	attack: 5,
+	dexterity: 5,
+	defence: 5,
+	vitality: 5,
+	wisdom: 5,
+	move_speed: 5,
 	
 	// gear
-	weapon: "iron_dagger"
+	lhand: noone,
+	rhand: noone,
+	helm: noone,
+	armor: noone,
+	boots: noone,
+	
+	// equip gear: slot - lhand, rhand, etc
+	equip: function(slot, item_name) {
+		switch(slot) 
+		{
+			// weapons
+			case gear.lhand:
+				self.lhand = global.weapon_list[$ item_name];
+				break;
+			case gear.rhand:
+				self.rhand = global.weapon_list[$ item_name];
+				break;
+				
+			// armor
+			case gear.helm:
+				break;
+			case gear.armor:
+				break;
+			case gear.boots:
+				break;
+		}
+	},
+	
+	
+	// attack lhand
+	lhand_cooldown: 0,
+	lhand_attack: function(_x, _y, _depth){
+		if (!self.lhand) {
+			return;
+		}
+		
+		// update cooldown
+		if lhand_cooldown > 0 {
+			lhand_cooldown--;
+		}
+		
+		// create slash
+		if (lhand_cooldown <= 0) {
+			var slash = instance_create_depth(_x, _y, _depth, obj_slash);
+			// update slash properties
+			slash.alarm[0] = self.lhand.range;
+			slash.sprite_index = self.lhand.slash_sprite;
+			slash.damage = (self.lhand.base_damage + self.attack);
+			slash.spd = self.move_speed;
+			
+			// add cooldown of attack
+			self.lhand_cooldown = 300/(self.lhand.attack_speed + self.dexterity);
+		}
+	},
+	
+	// attack rhand
+	rhand_cooldown: 0,
+	rhand_attack: function(_x, _y, _depth){
+		if (!self.rhand) {
+			return;
+		}
+		
+		// update cooldown
+		if rhand_cooldown > 0 {
+			rhand_cooldown--;
+		}
+		
+		// create slash
+		if (rhand_cooldown <= 0) {
+			var slash = instance_create_depth(_x, _y, _depth, obj_slash);
+			// update slash properties
+			slash.alarm[0] = self.rhand.range;
+			slash.sprite_index = self.rhand.slash_sprite;
+			slash.damage = (self.rhand.base_damage + self.attack);
+			slash.spd = self.move_speed;
+			
+			// add cooldown of attack
+			self.rhand_cooldown = 300/(self.rhand.attack_speed + self.dexterity);
+		}
+	}
+	
 }
 
-// change weapon for debug
-//player_manager.weapon = "iron_sword";
+// equip an iron dagger!
+player_manager.equip(gear.lhand, "iron_dagger");
+player_manager.equip(gear.rhand, "iron_sword");
 
-// [[ Player States ]]
+// player states: idle, move, dash
 // IDLE
 idle_state = new state(
     function() { // start
@@ -31,7 +142,7 @@ idle_state = new state(
 		
 		// trigger attack
 		if (akey) {
-			global.weapon_list[$ player_manager.weapon].attack(x, y, depth);
+			player_manager.lhand_attack(x, y, depth+1);
 		}
 		
         if (abs(horz) > 0 || abs(vert) > 0) {
@@ -53,7 +164,7 @@ move_state = new state(
 		
 		// trigger attack
 		if (akey) {
-			global.weapon_list[$ player_manager.weapon].attack(x, y, depth);
+			player_manager.lhand_attack(x, y, depth+1);
 		}
 		
 		// trigger dash state
