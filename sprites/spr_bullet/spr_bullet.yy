@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Attacks",
-    "path":"folders/Attacks.yy",
+    "name":"BallSpawn",
+    "path":"folders/Quest/BallSpawn.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -18,7 +18,7 @@
   "name":"_start_screen",
   "parent":{
     "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "path":"folders/Map/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

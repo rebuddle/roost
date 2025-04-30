@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"init_weapons",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Weapons",
+    "path":"folders/Player/Weapons.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

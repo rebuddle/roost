@@ -1,3 +1,13 @@
+// hi-score: 412
+
+
+/* Slash Sprite Browser */
+// press to change sprite index
+// used for browsing slash sprites:D
+global.img_i = 0;
+pressed = false;
+/* end */
+
 // probably unecessary but could be helpful to have indicators
 enum gear {
 	lhand,
@@ -129,6 +139,9 @@ player_manager = {
 			slash.damage = (weapon.base_damage + self.attack);
 			slash.spd = self.move_speed;
 			
+			/* slash browswer */
+			image_index = global.img_i;
+			
 			// add cooldown of attack
 			weapon_cooldown = 300/(weapon.attack_speed + self.dexterity);
 			self.set_cooldown(hand, weapon_cooldown);
@@ -141,8 +154,8 @@ player_manager = {
 }
 
 // equip an iron dagger!
-player_manager.equip(gear.lhand, "sword");
-player_manager.equip(gear.rhand, "bow");
+player_manager.equip(gear.rhand, "sword");
+player_manager.equip(gear.lhand, "bow");
 
 // player states: idle, move, dash
 // IDLE

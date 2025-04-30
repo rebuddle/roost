@@ -9,8 +9,8 @@
   "name":"obj_enemyspawn",
   "overriddenProperties":[],
   "parent":{
-    "name":"Quest",
-    "path":"folders/Quest.yy",
+    "name":"EnemySpawn",
+    "path":"folders/Quest/EnemySpawn.yy",
   },
   "parentObjectId":null,
   "persistent":false,

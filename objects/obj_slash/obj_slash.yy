@@ -10,8 +10,8 @@
   "name":"obj_slash",
   "overriddenProperties":[],
   "parent":{
-    "name":"Attacks",
-    "path":"folders/Attacks.yy",
+    "name":"Weapons",
+    "path":"folders/Player/Weapons.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -9,8 +9,8 @@
   "name":"obj_startscreen",
   "overriddenProperties":[],
   "parent":{
-    "name":"Quest",
-    "path":"folders/Quest.yy",
+    "name":"StartScreen",
+    "path":"folders/UI/StartScreen.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"init_enemies",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Enemy",
+    "path":"folders/Player/Enemy.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

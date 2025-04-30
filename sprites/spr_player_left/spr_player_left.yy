@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Players",
-    "path":"folders/Players.yy",
+    "name":"Hero",
+    "path":"folders/Player/Hero.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -23,5 +23,5 @@ if (instance_exists(obj_player)){
 	_script_movement(horz, vert, move_speed);
 	
 	// will need to modify to state machine, but for now this should work
-	global.weapon_list[$ weapon].attack(x, y, depth);
+	//global.weapon_list[$ weapon].attack(x, y, depth);
 }

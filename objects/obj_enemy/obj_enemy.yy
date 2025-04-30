@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Enemy",
-    "path":"folders/Enemy.yy",
+    "path":"folders/Player/Enemy.yy",
   },
   "parentObjectId":null,
   "persistent":false,

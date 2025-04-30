@@ -5,3 +5,7 @@ xspd = 0;
 yspd = 0;
 alarm[0] = 15;
 damage = 1;
+
+// variables to trigger image index change
+/* Sprite Browser */
+image_index = global.img_i;

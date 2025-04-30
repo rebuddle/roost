@@ -9,8 +9,8 @@
   "name":"obj_foodspawn",
   "overriddenProperties":[],
   "parent":{
-    "name":"Quest",
-    "path":"folders/Quest.yy",
+    "name":"FoodSpawn",
+    "path":"folders/Quest/FoodSpawn.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -43,7 +43,7 @@
   "name":"rm_arena",
   "parent":{
     "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "path":"folders/Map/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

@@ -9,8 +9,8 @@
   "name":"obj_bullet",
   "overriddenProperties":[],
   "parent":{
-    "name":"Attacks",
-    "path":"folders/Attacks.yy",
+    "name":"BallSpawn",
+    "path":"folders/Quest/BallSpawn.yy",
   },
   "parentObjectId":null,
   "persistent":false,
