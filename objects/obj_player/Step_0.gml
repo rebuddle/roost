@@ -34,11 +34,11 @@ if (next_key && !pressed) {
 }
 
 if (previous_key && !pressed) {
-	global.img_i = (global.img_i + 1)%catalog_len;
+	global.img_i = (global.img_i - 1)%catalog_len;
 	pressed = true;
 }
 
-if (next_key || previous_key) {
+if (!next_key && !previous_key) {
 	pressed = false;
 }
 /* end */

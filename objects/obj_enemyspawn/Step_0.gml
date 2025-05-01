@@ -7,7 +7,7 @@ if (!instance_exists(obj_player)) {
 if (spwn_cd < 0) {
 	var w = irandom(4);
 	var _obj = obj_enemy;
-	var _offset = 64;
+	var _offset = 96;
 	switch(w)
 	{ // pick a random wall to spawn on
 		case 0:

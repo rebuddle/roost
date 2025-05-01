@@ -20,6 +20,7 @@
     {"name":"obj_food","order":1,"path":"objects/obj_food/obj_food.yy",},
     {"name":"obj_player_dash_trail","order":1,"path":"objects/obj_player_dash_trail/obj_player_dash_trail.yy",},
     {"name":"obj_show_damage","order":5,"path":"objects/obj_show_damage/obj_show_damage.yy",},
+    {"name":"obj_slash_trail","order":8,"path":"objects/obj_slash_trail/obj_slash_trail.yy",},
     {"name":"obj_slash","order":3,"path":"objects/obj_slash/obj_slash.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
     {"name":"obj_warp","order":2,"path":"objects/obj_warp/obj_warp.yy",},

@@ -46,6 +46,7 @@
     {"id":{"name":"obj_player_dash_trail","path":"objects/obj_player_dash_trail/obj_player_dash_trail.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_show_damage","path":"objects/obj_show_damage/obj_show_damage.yy",},},
+    {"id":{"name":"obj_slash_trail","path":"objects/obj_slash_trail/obj_slash_trail.yy",},},
     {"id":{"name":"obj_slash","path":"objects/obj_slash/obj_slash.yy",},},
     {"id":{"name":"obj_startscreen","path":"objects/obj_startscreen/obj_startscreen.yy",},},
     {"id":{"name":"obj_ui","path":"objects/obj_ui/obj_ui.yy",},},
