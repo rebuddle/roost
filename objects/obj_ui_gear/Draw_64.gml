@@ -1,14 +1,14 @@
 // Example gear struct
 global.my_gear = [
-    { name: "Sword", icon: spr_sword, type: "Weapon", stats: "Level 1", exp: 45, exp_max: 100 },
-    { name: "Shield", icon: spr_shield, type: "Weapon", stats: "Level 1", exp: 45, exp_max: 100 },
+    //{ name: "Sword", icon: spr_sword, type: "Weapon", stats: "Level 1", exp: 45, exp_max: 100 },
+    { name: "Shield", icon: spr_shield, type: "Weapon", level: 1, exp: 45, exp_max: 100 },
 	//{ name: "Helm", icon: spr_extra, type: "Armor", stats: "Level 1" },
-	{ name: "Armor", icon: spr_armor, type: "Armor", stats: "Level 1" },
-    { name: "Boots", icon: spr_boots, type: "Accessory", stats: "Level 1" }
+	{ name: "Armor", icon: spr_armor, type: "Armor", level: 1 },
+    { name: "Boots", icon: spr_boots, type: "Accessory", level: 1 }
 ];
 
 // obj_ui - Draw GUI Event
-var gear_list = global.my_gear;
+var gear_list = array_concat([obj_player.player_manager.lhand], global.my_gear);
 var _x = room_width;
 var _y = 50;
 var spacing = 100;
@@ -26,15 +26,15 @@ for (var i = 0; i < array_length(gear_list); i++) {
 	// draw gear slot
     draw_sprite(item.icon, 0, _x, _y + i * spacing);
     draw_text(_x + 40, _y + i * spacing, item.name);
-    draw_text(_x + 40, _y + i * spacing + 20, item.stats);
+    draw_text(_x + 40, _y + i * spacing + 20, "Level " + string(item.level));
 	
 	// If item has experience, draw exp bar
-    if (item.type = "Weapon") {
+    if (item.type = "weapon") {
         var bar_x = _x + 20;
         var bar_y = item_y + 45;
         var bar_width = 80;
         var bar_height = 10;
-        var exp_ratio = item.exp / item.exp_max;
+        var exp_ratio = item.xp / item.max_xp;
 
         // Background bar
         draw_set_color(c_dkgray);

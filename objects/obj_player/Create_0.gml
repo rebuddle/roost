@@ -155,7 +155,7 @@ player_manager = {
 
 // equip an iron dagger!
 player_manager.equip(gear.rhand, "sword");
-player_manager.equip(gear.lhand, "bow");
+player_manager.equip(gear.lhand, "sword");
 
 // player states: idle, move, dash
 // IDLE

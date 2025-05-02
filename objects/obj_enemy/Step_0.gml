@@ -14,6 +14,7 @@ if (instance_exists(obj_player)){
 	// enemy destroyed
 	if (hp <= 0) {
 		global.score++;
+		obj_player.player_manager.lhand.add_xp(10);
 		instance_destroy();
 	}
 
