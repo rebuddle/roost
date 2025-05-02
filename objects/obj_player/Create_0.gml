@@ -1,44 +1,9 @@
 // hi-score: 412
 
-
-/* Slash Sprite Browser */
-// press to change sprite index
-// used for browsing slash sprites:D
-global.img_i = 0;
-pressed = false;
-/* end */
-
-// probably unecessary but could be helpful to have indicators
-enum gear {
-	lhand,
-	rhand,
-	helm,
-	armor,
-	boots
-}
-enum stat {
-	hp,
-	mana,
-	attack,
-	dexterity,
-	defence,
-	vitality,
-	wisdom,
-	move_speed
-}
-
 // player manager: levels, stats, and gear
 player_manager = {
-	// level
-	level: 1,
-	experience: 0,
-	experience_to_next: 100,
-	
-	// resource stats
 	max_hp: 12,
 	hp: 12,
-	max_mana: 100,
-	mana: 100,
 	
 	// base stats
 	attack: 5,
@@ -48,114 +13,20 @@ player_manager = {
 	wisdom: 5,
 	move_speed: 5,
 	
+	// cooldowns
+	dash_cooldown: 0,
+	
 	// gear
 	lhand: noone,
 	rhand: noone,
 	helm: noone,
 	armor: noone,
-	boots: noone,
-	
-	// equip gear: slot - lhand, rhand, etc
-	equip: function(slot, item_name) {
-		switch(slot) 
-		{
-			// weapons
-			case gear.lhand:
-				self.lhand = global.weapon_list[$ item_name];
-				break;
-			case gear.rhand:
-				self.rhand = global.weapon_list[$ item_name];
-				break;
-				
-			// armor
-			case gear.helm:
-				break;
-			case gear.armor:
-				break;
-			case gear.boots:
-				break;
-		}
-	},
-	
-	
-	// attack lhand
-	lhand_cooldown: 0,
-	rhand_cooldown: 0,
-	dash_cooldown: 0,
-	
-	step_cooldowns: function() {
-		// update cooldown
-		if lhand_cooldown > 0 {
-			lhand_cooldown--;
-		}
-		if rhand_cooldown > 0 {
-			rhand_cooldown--;	
-		}
-		if dash_cooldown > 0 {
-			dash_cooldown--;
-		}
-	},
-	
-	set_cooldown: function(cooldown, amount) {
-		// set cooldown
-		switch(cooldown){
-			case gear.lhand:
-				self.lhand_cooldown = amount;
-				break;
-			case gear.rhand:
-				self.rhand_cooldown = amount;
-				break;
-		}
-	},
-	
-	use_attack: function(hand, _x, _y, _depth){
-		// init vars
-		var weapon = noone;
-		var weapon_cooldown;
-		
-		// pick attack
-		switch(hand){
-			case gear.lhand:
-				weapon = self.lhand;
-				weapon_cooldown = self.lhand_cooldown;
-				break;
-			case gear.rhand:
-				weapon = self.rhand;
-				weapon_cooldown = self.rhand_cooldown;
-				break;
-		}
-		
-		// exit if noone
-		if (!weapon) {
-			return;
-		}
-		
-		// create slash
-		if (weapon_cooldown <= 0) {
-			var slash = instance_create_depth(_x, _y, _depth, weapon.slash_object);
-			// update slash properties
-			slash.alarm[0] = weapon.range;
-			slash.sprite_index = weapon.slash_sprite;
-			slash.damage = (weapon.base_damage + self.attack);
-			slash.spd = self.move_speed;
-			
-			/* slash browswer */
-			image_index = global.img_i;
-			
-			// add cooldown of attack
-			weapon_cooldown = 300/(weapon.attack_speed + self.dexterity);
-			self.set_cooldown(hand, weapon_cooldown);
-		}
-		
-		
-		
-	}
-	
+	boots: noone
 }
 
-// equip an iron dagger!
-player_manager.equip(gear.rhand, "sword");
-player_manager.equip(gear.lhand, "sword");
+// equip gear
+player_manager.lhand = global.weapon_list[$ "sword"];
+player_manager.rhand = global.weapon_list[$ "bow"];
 
 // player states: idle, move, dash
 // IDLE
@@ -171,10 +42,10 @@ idle_state = new state(
 		
 		// trigger attack
 		if (lattkey) {
-			player_manager.use_attack(gear.lhand, x, y, depth+1);
+			_script_attack(x,y,depth+1);
 		}
 		if (rattkey) {
-			player_manager.use_attack(gear.rhand, x, y, depth+1);
+			_script_attack(x,y,depth+1);
 		}
 		
 		// trigger movement
@@ -198,10 +69,10 @@ move_state = new state(
 		
 		// trigger attack
 		if (lattkey) {
-			player_manager.use_attack(gear.lhand, x, y, depth+1);
+			_script_attack(x,y,depth+1);
 		}
 		if (rattkey) {
-			player_manager.use_attack(gear.rhand, x, y, depth+1);
+			_script_attack(x,y,depth+1);
 		}
 		
 		// trigger dash state

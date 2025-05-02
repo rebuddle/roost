@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"_script_movement",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"_Code",
+    "path":"folders/_Code.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -59,8 +59,8 @@
   },
   "origin":7,
   "parent":{
-    "name":"Weapons",
-    "path":"folders/Player/Weapons.yy",
+    "name":"_Weapons",
+    "path":"folders/_Weapons.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

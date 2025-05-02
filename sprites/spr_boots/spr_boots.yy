@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"ShowGear",
-    "path":"folders/UI/ShowGear.yy",
+    "path":"folders/_UI/ShowGear.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -6,7 +6,7 @@
   "name":"init_enemies",
   "parent":{
     "name":"Enemy",
-    "path":"folders/Player/Enemy.yy",
+    "path":"folders/Enemy.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

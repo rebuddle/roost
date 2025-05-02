@@ -45,7 +45,7 @@
   "origin":0,
   "parent":{
     "name":"Tilesets",
-    "path":"folders/Map/Tilesets.yy",
+    "path":"folders/World/Tilesets.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

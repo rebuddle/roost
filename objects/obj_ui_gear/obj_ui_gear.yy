@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"ShowGear",
-    "path":"folders/UI/ShowGear.yy",
+    "path":"folders/_UI/ShowGear.yy",
   },
   "parentObjectId":null,
   "persistent":false,

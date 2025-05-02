@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"StartScreen",
-    "path":"folders/UI/StartScreen.yy",
+    "path":"folders/_UI/StartScreen.yy",
   },
   "parentObjectId":null,
   "persistent":false,

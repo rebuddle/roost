@@ -10,8 +10,8 @@
   "name":"obj_show_damage",
   "overriddenProperties":[],
   "parent":{
-    "name":"Weapons",
-    "path":"folders/Player/Weapons.yy",
+    "name":"_Weapons",
+    "path":"folders/_Weapons.yy",
   },
   "parentObjectId":null,
   "persistent":false,

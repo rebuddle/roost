@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"HealthBar",
-    "path":"folders/UI/HealthBar.yy",
+    "path":"folders/_UI/HealthBar.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

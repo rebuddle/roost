@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"BallSpawn",
-    "path":"folders/Quest/BallSpawn.yy",
+    "path":"folders/World/BallSpawn.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
