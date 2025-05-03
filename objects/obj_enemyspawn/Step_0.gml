@@ -13,8 +13,6 @@ if (_spwn_cd <= 0){
 	var _obj = obj_enemy;
 	var _offset = 96;
 	
-	show_debug_message(enemy);
-	show_debug_message(global.enemy_list[$ enemy]);
 	switch(w)
 	{ // pick a random wall to spawn on
 		case 0:

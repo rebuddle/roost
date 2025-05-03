@@ -9,6 +9,3 @@ move_speed = 5;
 damage = 1;
 attack_speed = 15; 
 defence = 1;
-
-// attack
-weapon = "enemy_strike";

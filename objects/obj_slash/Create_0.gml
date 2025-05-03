@@ -5,3 +5,5 @@ xspd = 0;
 yspd = 0;
 alarm[0] = 15;
 damage = 1;
+
+owner=noone;

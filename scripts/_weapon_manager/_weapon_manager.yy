@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"_weapon_manager",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"_weapon_manager",
+  "parent":{
+    "name":"_Weapons",
+    "path":"folders/_Weapons.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

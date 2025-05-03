@@ -26,7 +26,7 @@ player_manager = {
 
 // equip gear
 player_manager.lhand = global.weapon_list[$ "sword"];
-player_manager.rhand = global.weapon_list[$ "bow"];
+player_manager.rhand = global.weapon_list[$ "sword"];
 
 // player states: idle, move, dash
 // IDLE

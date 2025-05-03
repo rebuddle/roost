@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"init_weapons",
+  "%Name":"_player_manager_DEV",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"init_weapons",
+  "name":"_player_manager_DEV",
   "parent":{
-    "name":"_Weapons",
-    "path":"folders/_Weapons.yy",
+    "name":"_Player",
+    "path":"folders/_Player.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
