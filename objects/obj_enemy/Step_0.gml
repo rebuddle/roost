@@ -2,12 +2,12 @@
 // move towards player
 if (instance_exists(obj_player_old)){
 	// taking damage
-	if place_meeting(x, y, obj_slash){
-		obj_slash.owner.add_xp(50);
+	if place_meeting(x, y, obj_projectile){
+		obj_projectile.owner.add_xp(50);
 		
-		var damage = max(irandom(obj_slash.damage) - irandom(defence), 0);
+		var damage = max(irandom(obj_projectile.damage) - irandom(defence), 0);
 		hp-= damage;
-		instance_destroy(obj_slash);
+		instance_destroy(obj_projectile);
 		
 		var dmg_text = instance_create_depth(x+16, y-16, depth-10, obj_show_damage);
 		dmg_text.damage = damage;

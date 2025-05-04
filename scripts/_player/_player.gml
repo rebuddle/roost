@@ -1,4 +1,4 @@
-/* sample run */
+// _player.gml
 function PLAYER()
 	constructor {
 		// main object
@@ -12,6 +12,7 @@ function PLAYER()
 		dash_cooldown= 0;
 		max_hp = 6;
 		hp = max_hp;
+		weapon = global.weapon_list[$ "sword"];
 		
 		// sprite select
 		sprite_index = spr_player;
@@ -27,6 +28,11 @@ function PLAYER()
 		
 		// state machine
 		update= fsm.step;
+		
+		// controls
+		// player_attack = _player_attack;
+		// player_movement = _player_movement;
+		
 		// cooldowns
 		cooldown = _player_cooldowns;
 }
@@ -64,11 +70,13 @@ function _player_cooldowns(){
 	if dash_cooldown > 0 {
 		dash_cooldown--;
 	}
+	if (weapon) {
+		weapon.cooldowns();	
+	}
 }
 
 function _player_attack(){
-	lhand.attack();
-	rhand.attack();
+	weapon.attack();
 }
 
 function _player_state_init(){
@@ -80,11 +88,11 @@ function _player_state_init(){
 		    function() { // step
 		        horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
 		        vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
-				lattkey = mouse_check_button(mb_left);
+				att_key = mouse_check_button(mb_left);
 		
 				// trigger attack
-				if (lattkey) {
-					show_debug_message("attack!")
+				if (att_key) {
+					_player_attack();
 				}
 		
 				// trigger movement
@@ -102,16 +110,17 @@ function _player_state_init(){
 	    function() {
 	        horz = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * move_speed;
 	        vert = (keyboard_check(ord("S")) - keyboard_check(ord("W"))) * move_speed;
-			dkey = keyboard_check(vk_space);
-			lattkey = mouse_check_button(mb_left);
+			dash_key = keyboard_check(vk_space);
+			att_key = mouse_check_button(mb_left);
 		
 			// trigger attack
-			if (lattkey) {
-				show_debug_message("attack!");
+			if (att_key) {
+				_player_attack();
+				
 			}
 		
 			// trigger dash state
-			if (!dash_cooldown && dkey) && (abs(horz) > 0 || abs(vert) > 0) {
+			if (!dash_cooldown && dash_key) && (abs(horz) > 0 || abs(vert) > 0) {
 				fsm.change_state("dash");
 				return;
 			}

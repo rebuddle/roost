@@ -10,8 +10,8 @@
   "name":"obj_show_damage",
   "overriddenProperties":[],
   "parent":{
-    "name":"Items",
-    "path":"folders/Items.yy",
+    "name":"Weapons",
+    "path":"folders/Weapons.yy",
   },
   "parentObjectId":null,
   "persistent":false,
