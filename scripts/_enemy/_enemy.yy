@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"_fsm",
+  "%Name":"_enemy",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"_fsm",
+  "name":"_enemy",
   "parent":{
-    "name":"Code",
-    "path":"folders/Code.yy",
+    "name":"Enemies",
+    "path":"folders/Enemies.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

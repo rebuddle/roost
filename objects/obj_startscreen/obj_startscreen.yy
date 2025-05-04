@@ -9,8 +9,8 @@
   "name":"obj_startscreen",
   "overriddenProperties":[],
   "parent":{
-    "name":"StartScreen",
-    "path":"folders/_UI/StartScreen.yy",
+    "name":"World",
+    "path":"folders/World.yy",
   },
   "parentObjectId":null,
   "persistent":false,

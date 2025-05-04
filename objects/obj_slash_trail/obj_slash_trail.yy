@@ -9,8 +9,8 @@
   "name":"obj_slash_trail",
   "overriddenProperties":[],
   "parent":{
-    "name":"_Weapons",
-    "path":"folders/_Weapons.yy",
+    "name":"Items",
+    "path":"folders/Items.yy",
   },
   "parentObjectId":null,
   "persistent":false,

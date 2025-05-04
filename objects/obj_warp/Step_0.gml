@@ -1,6 +1,6 @@
 // collision trigger
-if place_meeting(x,y,obj_player){
+if place_meeting(x,y,obj_player_old){
 	room_goto(target_rm);
-	obj_player.x = target_x;
-	obj_player.y = target_y;
+	obj_player_old.x = target_x;
+	obj_player_old.y = target_y;
 }

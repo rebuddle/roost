@@ -2,7 +2,7 @@ if (_spwn_cd > 0) {
 	_spwn_cd--;
 }
 
-if (!instance_exists(obj_player)) {
+if (!instance_exists(obj_player_old)) {
 	instance_destroy();
 }
 

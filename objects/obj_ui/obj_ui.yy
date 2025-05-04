@@ -9,8 +9,8 @@
   "name":"obj_ui",
   "overriddenProperties":[],
   "parent":{
-    "name":"HealthBar",
-    "path":"folders/_UI/HealthBar.yy",
+    "name":"UI",
+    "path":"folders/UI.yy",
   },
   "parentObjectId":null,
   "persistent":false,

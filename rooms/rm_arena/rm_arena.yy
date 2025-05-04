@@ -37,7 +37,7 @@
           3,1,34,-4,1,1,32,-10,3,-3,2,-4,3,-5,2,-2,3,1,34,-4,1,1,32,-9,4,1,3,-3,2,3,3,4,4,-5,3,-2,4,2,3,34,-4,
           1,2,32,4,-6,3,-2,4,1,3,-3,2,1,3,-9,4,2,3,34,-4,1,3,32,3,3,-4,2,-4,3,-3,2,-11,3,1,34,-4,1,2,32,3,-6,2,
           -2,3,-15,2,1,34,-4,1,1,32,-24,2,1,34,-4,1,1,37,-24,38,2,39,1,-240,-2147483648,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"ts_playground1","path":"tilesets/ts_playground1/ts_playground1.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":null,"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "name":"rm_arena",
@@ -63,7 +63,7 @@
   },
   "sequenceId":null,
   "views":[
-    {"hborder":200,"hport":960,"hspeed":-1,"hview":270,"inherit":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"vborder":150,"visible":true,"vspeed":-1,"wport":1320,"wview":360,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":200,"hport":960,"hspeed":-1,"hview":270,"inherit":false,"objectId":{"name":"obj_player_old","path":"objects/obj_player_old/obj_player_old.yy",},"vborder":150,"visible":true,"vspeed":-1,"wport":1320,"wview":360,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},

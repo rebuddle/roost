@@ -1,6 +1,6 @@
 
 // move towards player
-if (instance_exists(obj_player)){
+if (instance_exists(obj_player_old)){
 	// taking damage
 	if place_meeting(x, y, obj_slash){
 		obj_slash.owner.add_xp(50);
@@ -21,7 +21,7 @@ if (instance_exists(obj_player)){
 	}
 
 	// movement
-	horz = obj_player.x - x;
-	vert = obj_player.y - y;
+	horz = obj_player_old.x - x;
+	vert = obj_player_old.y - y;
 	_script_movement(horz, vert, move_speed);
 }

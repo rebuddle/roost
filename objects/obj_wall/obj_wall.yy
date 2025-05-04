@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Collisions",
-    "path":"folders/World/Collisions.yy",
+    "path":"folders/Utilities/Collisions.yy",
   },
   "parentObjectId":null,
   "persistent":false,

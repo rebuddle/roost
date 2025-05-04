@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"_fsm",
+  "%Name":"_weapon",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"_fsm",
+  "name":"_weapon",
   "parent":{
-    "name":"Code",
-    "path":"folders/Code.yy",
+    "name":"Items",
+    "path":"folders/Items.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"_fsm",
+  "%Name":"_ui",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"_fsm",
+  "name":"_ui",
   "parent":{
-    "name":"Code",
-    "path":"folders/Code.yy",
+    "name":"UI",
+    "path":"folders/UI.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

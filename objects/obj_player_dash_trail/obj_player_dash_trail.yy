@@ -8,8 +8,8 @@
   "name":"obj_player_dash_trail",
   "overriddenProperties":[],
   "parent":{
-    "name":"_Player",
-    "path":"folders/_Player.yy",
+    "name":"Player",
+    "path":"folders/Player.yy",
   },
   "parentObjectId":null,
   "persistent":false,
