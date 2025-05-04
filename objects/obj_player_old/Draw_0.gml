@@ -1,0 +1,2 @@
+// draw player
+player.draw();
