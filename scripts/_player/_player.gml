@@ -1,10 +1,8 @@
 // _player.gml
 function PLAYER()
 	constructor {
-		// main object
+		/* variables */
 		object= obj_player;
-		
-		// variables
 	    move_speed= 8;
 		horz =0;
 		vert =0;
@@ -13,70 +11,62 @@ function PLAYER()
 		max_hp = 6;
 		hp = max_hp;
 		weapon = global.weapon_list[$ "sword"];
-		
-		// sprite select
 		sprite_index = spr_player;
 		
+		/* initialization */
+		_player_state_init();
+		
+		/* methods */
 		// draw sprite
 		draw= function() {
 			draw_sprite(sprite_index, 0, object.x, object.y);
-			//draw.self();
-	    };
-
-		// initialize player states
-		_player_state_init();
+	    }
 		
 		// state machine
 		update= fsm.step;
 		
-		// controls
-		// player_attack = _player_attack;
-		// player_movement = _player_movement;
+		// attack
+		player_attack = function () {
+			weapon.attack();
+		}
+	
+		// movement
+		player_movement = function () {
+			// get input
+			var _mdir = point_direction(0, 0, horz, vert);
+			// normalize distance
+			var _dist = point_distance(0, 0, horz, vert);
+			_dist = clamp(_dist, 0, 1);
+	
+			// translate to x and y
+			var _spd = move_speed * _dist;
+			var _xsp = lengthdir_x(_spd, _mdir);
+			var _ysp = lengthdir_y(_spd, _mdir);
+			
+			// collision - !! Can be better !!
+			with (object){
+				if (place_meeting(x+_xsp, y, obj_wall)){
+					_xsp = 0;
+				}
+				if (place_meeting(x, y+_ysp, obj_wall)){
+					_ysp = 0;
+				}
+			}
+			// move
+			object.x+=_xsp;
+			object.y+=_ysp;
+		}
 		
 		// cooldowns
-		cooldown = _player_cooldowns;
-}
-
-function _player_movement() {
-	// get input
-	var _mdir = point_direction(0, 0, horz, vert);
-	// normalize distance
-	var _dist = point_distance(0, 0, horz, vert);
-	_dist = clamp(_dist, 0, 1);
-	
-	// translate to x and y
-	var _spd = move_speed * _dist;
-	var _xsp = lengthdir_x(_spd, _mdir);
-	var _ysp = lengthdir_y(_spd, _mdir);
-	
-	// collision - !! Can be better !!
-	with (object){
-		if (place_meeting(x+_xsp, y, obj_wall)){
-			_xsp = 0;
+		cooldowns = function () {
+			// update cooldown
+			if dash_cooldown > 0 {
+				dash_cooldown--;
+			}
+			if (weapon) {
+				weapon.cooldowns();	
+			}
 		}
-		if (place_meeting(x, y+_ysp, obj_wall)){
-			_ysp = 0;
-		}
-	}
-	
-	// move
-	object.x+=_xsp;
-	object.y+=_ysp;
-	
-}
-
-function _player_cooldowns(){
-	// update cooldown
-	if dash_cooldown > 0 {
-		dash_cooldown--;
-	}
-	if (weapon) {
-		weapon.cooldowns();	
-	}
-}
-
-function _player_attack(){
-	weapon.attack();
 }
 
 function _player_state_init(){
@@ -92,7 +82,7 @@ function _player_state_init(){
 		
 				// trigger attack
 				if (att_key) {
-					_player_attack();
+					player_attack();
 				}
 		
 				// trigger movement
@@ -115,7 +105,7 @@ function _player_state_init(){
 		
 			// trigger attack
 			if (att_key) {
-				_player_attack();
+				player_attack();
 				
 			}
 		
@@ -131,7 +121,7 @@ function _player_state_init(){
 				return;
 	        }
 
-	        _player_movement();
+	        player_movement();
 	    }
 	);
 
@@ -145,7 +135,7 @@ function _player_state_init(){
 		
 		function() {
 			// dash
-			_player_movement();
+			player_movement();
 		
 			// trail effect
 			with (instance_create_depth(object.x, object.y, object.depth+1, obj_player_dash_trail)){

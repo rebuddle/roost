@@ -1,6 +1,6 @@
 // _weapon.gml
 function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr_slash) constructor {
-		// assigned variables
+		/* variables */
 		owner = obj_player
 		object = obj_projectile;
 		sprite = _spr_slash;
@@ -12,30 +12,26 @@ function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr
         range= _range;
 		cooldown= 0;
 		
-		// methods
-		attack= _weapon_attack;
-		cooldowns=_weapon_cooldowns;
-}
-
-function _weapon_attack() {
-	// create slash
-	if (cooldown <= 0) {
-		var slash = instance_create_depth(owner.x, owner.y, owner.depth - 1, object);
-		// update slash properties
-		slash.alarm[0] = range*3;
-		slash.sprite_index = sprite;
-		slash.damage = base_damage;
-		slash.spd = slash_speed;
+		/* methods */
+		// attack
+		attack= function () {
+			// create slash
+			if (cooldown <= 0) {
+				var slash = instance_create_depth(owner.x, owner.y, owner.depth - 1, object);
+				// _owner, _sprite_index, _damage, _spd, _range
+				slash.projectile.init(owner, sprite, base_damage, slash_speed, range*3); 
 		
-		// add cooldown of attack
-		cooldown = 60/(attack_speed);
-	}
-}
-
-function _weapon_cooldowns() {
-	if (cooldown > 0) {
-		cooldown--;
-	}
+				// add cooldown of attack
+				cooldown = 60/(attack_speed);
+			}
+		}
+		
+		// cooldown
+		cooldowns= function () {
+			if (cooldown > 0) {
+				cooldown--;
+			}	
+		}
 }
 
 // initialize weapon list

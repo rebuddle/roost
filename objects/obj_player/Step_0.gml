@@ -1,5 +1,5 @@
 // cooldowns
-player.cooldown();
+player.cooldowns();
 
 // player state machine
 player.update();

@@ -2,10 +2,10 @@
   "FolderOrderSettings":[
     {"name":"__DEV","order":7,"path":"folders/__DEV.yy",},
     {"name":"Enemies","order":5,"path":"folders/Enemies.yy",},
-    {"name":"Weapons","order":6,"path":"folders/Weapons.yy",},
     {"name":"Player","order":1,"path":"folders/Player.yy",},
     {"name":"UI","order":4,"path":"folders/UI.yy",},
     {"name":"Utilities","order":8,"path":"folders/Utilities.yy",},
+    {"name":"Weapons","order":6,"path":"folders/Weapons.yy",},
     {"name":"World","order":2,"path":"folders/World.yy",},
   ],
   "ResourceOrderSettings":[
@@ -22,6 +22,7 @@
     {"name":"rm_sandbox","order":3,"path":"rooms/rm_sandbox/rm_sandbox.yy",},
     {"name":"rm_start","order":4,"path":"rooms/rm_start/rm_start.yy",},
     {"name":"_enemy","order":4,"path":"scripts/_enemy/_enemy.yy",},
+    {"name":"_projectile","order":8,"path":"scripts/_projectile/_projectile.yy",},
     {"name":"_ui","order":3,"path":"scripts/_ui/_ui.yy",},
     {"name":"_weapon","order":3,"path":"scripts/_weapon/_weapon.yy",},
     {"name":"spr_enemy_1","order":2,"path":"sprites/spr_enemy_1/spr_enemy_1.yy",},
