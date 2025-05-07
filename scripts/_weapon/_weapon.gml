@@ -1,9 +1,10 @@
 // _weapon.gml
-function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr_slash) constructor {
+function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr_slash, _spr_trail, _amplitude, _num_shots) constructor {
 		/* variables */
-		owner = obj_player
-		object = obj_projectile;
+		owner = obj_player;
+		object = obj_projectile_dumb;
 		sprite = _spr_slash;
+		sprite_trail = _spr_trail;
         name= _name;
 		type= _type;
         base_damage= _damage;
@@ -11,15 +12,40 @@ function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr
 		slash_speed= _slash_speed;
         range= _range;
 		cooldown= 0;
+		num_shots = _num_shots;
+		amplitude=_amplitude;
+		curve_coeff=1;
+		
 		
 		/* methods */
 		// attack
 		attack= function () {
 			// create slash
 			if (cooldown <= 0) {
-				var slash = instance_create_depth(owner.x, owner.y, owner.depth - 1, object);
-				// _owner, _sprite_index, _damage, _spd, _range
-				slash.projectile.init(owner, sprite, base_damage, slash_speed, range*3); 
+				for (var i=0; i<num_shots; i++){
+					var slash = instance_create_depth(owner.x, owner.y, owner.depth, object);
+					// _owner, _sprite_index, _damage, _spd, _range
+					
+					/* need to be upgraded sprite version */
+					//slash.projectile.init(owner, sprite, sprite_trail, base_damage, slash_speed, range*3, amplitude, curve_coeff); 
+					/*
+					slash.sprite_index = sprite;
+					slash.projectile.owner = owner;
+					slash.projectile.sprite = sprite;
+					slash.projectile.sprite_trail = sprite_trail;
+					slash.projectile.slash_speed = slash_speed;
+					slash.projectile.range = range*3;
+					slash.projectile.amplitude = amplitude;
+					slash.projectile.curve_coeff = curve_coeff;
+					*/
+					
+					/* dumb sprite version */
+					slash.sprite_index = sprite;
+					slash.sprite_trail = sprite_trail;
+					slash.curve_coeff = curve_coeff;
+					slash.alarm[0] = range*3;
+					curve_coeff *= -1;
+				}
 		
 				// add cooldown of attack
 				cooldown = 60/(attack_speed);
@@ -37,7 +63,8 @@ function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr
 // initialize weapon list
 global.weapon_list = {
 		// weapons // _name, _type, _damage, _attack_speed, _range, _spr_slash
-	    "sword": new WEAPON("sword", "weapon", 3, 3, 3, 8, spr_projectile)
+	    "sword": new WEAPON("sword", "weapon", 3, 3, 3, 8, spr_sword, spr_sword_trail, 0, 1),
+		"staff": new WEAPON("staff", "weapon", 3, 3, 10, 8, spr_staff, spr_staff_trail, 1, 2)
 };
 
 
