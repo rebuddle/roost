@@ -2,7 +2,7 @@
 /* Score */
 // draw score
 //draw_text_transformed(room_width/2,32, "Level:" + string(obj_enemyspawn._level),2,2, image_angle);
-//draw_text_transformed(room_width/2,64, "Kills:" + string(global.score),2,2, image_angle);
+draw_text_transformed(room_width/2,64, "Projectiles:" + string(instance_number(obj_projectile)),2,2, image_angle);
 /* end */
 
 if (!instance_exists(obj_player)) {

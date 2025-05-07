@@ -10,7 +10,7 @@ function PLAYER()
 		dash_cooldown= 0;
 		max_hp = 6;
 		hp = max_hp;
-		weapon = global.weapon_list[$ "staff"];
+		weapon = global.weapon_list[$ "sword"];
 		sprite_index = spr_player;
 		
 		/* initialization */
@@ -51,7 +51,12 @@ function PLAYER()
 				if (place_meeting(x, y+_ysp, obj_wall)){
 					_ysp = 0;
 				}
+				if (place_meeting(x, y, obj_enemy)){
+					show_debug_message("OUCH!");	
+				}
 			}
+			
+			
 			// move
 			object.x+=_xsp;
 			object.y+=_ysp;

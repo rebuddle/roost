@@ -42,7 +42,7 @@
     ],
     "top":0,
   },
-  "origin":7,
+  "origin":1,
   "parent":{
     "name":"Weapons",
     "path":"folders/Weapons.yy",
@@ -97,7 +97,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":32,
-    "yorigin":32,
+    "yorigin":0,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

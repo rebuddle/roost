@@ -1,2 +1,2 @@
 // draw projectile
-//projectile.draw();
+projectile.draw();
