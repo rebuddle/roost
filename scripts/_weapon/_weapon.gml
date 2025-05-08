@@ -25,7 +25,6 @@ function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr
 				for (var i=0; i<num_shots; i++){
 					// create slash object
 					var slash = instance_create_depth(owner.x, owner.y, owner.depth, object);
-					
 					/* need to be upgraded sprite version */
 					//slash.projectile.init(owner, sprite, sprite_trail, base_damage, slash_speed, range*3, amplitude, curve_coeff); 
 					slash.alarm[0] = range*3;
@@ -34,9 +33,11 @@ function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr
 					slash.projectile.sprite = sprite;
 					slash.projectile.sprite_trail = sprite_trail;
 					slash.projectile.slash_speed = slash_speed;
-					slash.projectile.range = range*3;
+					slash.projectile.range = range;
 					slash.projectile.amplitude = amplitude;
-					slash.projectile.curve_coeff = curve_coeff;
+					slash.projectile.dir = point_direction(owner.x, owner.y, mouse_x, mouse_y); 
+					slash.projectile.num_shots = num_shots;
+					slash.projectile.curve_coeff = i; //curve_coeff;
 					
 					/* dumb sprite version */
 					/*
@@ -46,7 +47,7 @@ function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr
 					slash.alarm[0] = range*3;
 					*/
 					
-					curve_coeff *= -1;
+					//curve_coeff *= -1;
 				}
 		
 				// add cooldown of attack
@@ -65,8 +66,8 @@ function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr
 // initialize weapon list
 global.weapon_list = {
 		// weapons // _name, _type, _damage, _attack_speed, _range, _spr_slash
-	    "sword": new WEAPON("sword", "weapon", 3, 3, 6, 25, spr_sword, spr_sword_trail, 0, 1),
-		"staff": new WEAPON("staff", "weapon", 3, 2, 15, 8, spr_staff, spr_staff_trail, 1, 2)
+	    "sword": new WEAPON("sword", "weapon", 3, 3, 18, 25, spr_sword, spr_sword_trail, 0, 1),
+		"staff": new WEAPON("staff", "weapon", 3, 2, 45, 8, spr_staff, spr_staff_trail, 1, 4)
 };
 
 

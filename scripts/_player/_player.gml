@@ -10,7 +10,7 @@ function PLAYER()
 		dash_cooldown= 0;
 		max_hp = 6;
 		hp = max_hp;
-		weapon = global.weapon_list[$ "sword"];
+		weapon = global.weapon_list[$ "staff"];
 		sprite_index = spr_player;
 		
 		/* initialization */

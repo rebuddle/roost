@@ -3,11 +3,12 @@ function PROJECTILE() constructor {
 	owner = obj_player;
 	object = obj_projectile;
 	sprite = spr_sword;
-	dir = point_direction(object.x, object.y, mouse_x, mouse_y); 
+	dir = 0; 
 	spd = 5;
 	damage = 1;
 	range = 15;
 	amplitude = 1;
+	num_shots = 1;
 	curve_coeff = 1;
 	t=0;
 	
@@ -16,20 +17,6 @@ function PROJECTILE() constructor {
 	depth = owner.depth;
 	
 	active = true;
-	
-	/* initialization */
-	/*
-	init = function (_owner, _sprite_index, _sprite_trail, _damage, _spd, _range, _amplitude, _curve_coeff) {
-		owner = _owner;
-		sprite = _sprite_index;
-		sprite_trail = _sprite_trail;
-		spd = _spd;
-		damage = _damage;
-		range = _range;
-		amplitude = _amplitude;
-		curve_coeff = _curve_coeff;
-	}
-	*/
 	
 	/* methods */
 	// draw	
@@ -48,15 +35,19 @@ function PROJECTILE() constructor {
 		var xspd = lengthdir_x( spd, dir);
 		var yspd = lengthdir_y( spd, dir);
 		
+		/*
 		if (t >= range div 2)
 		{
 			curve_coeff *= -1;
 			t = 0;
 		}
 		t++;
+		*/
 		
-		var perp_x = lengthdir_x(spd, dir+ (90*curve_coeff));
-		var perp_y = lengthdir_y(spd, dir+ (90*curve_coeff));
+		var proj_angle = -180*(curve_coeff/num_shots) + 90
+	
+		var perp_x = lengthdir_x(spd, dir + proj_angle);
+		var perp_y = lengthdir_y(spd, dir + proj_angle);
 
 		x += xspd + perp_x*amplitude;
 		y += yspd + perp_y*amplitude;
