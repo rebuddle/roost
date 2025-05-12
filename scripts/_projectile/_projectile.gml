@@ -4,7 +4,7 @@ function PROJECTILE() constructor {
 	object = obj_projectile;
 	sprite = spr_sword;
 	dir = 0; 
-	spd = 5;
+	spd = 2;
 	damage = 1;
 	range = 15;
 	amplitude = 1;
@@ -61,18 +61,20 @@ function PROJECTILE() constructor {
 		
 		// collision with drawing
 		var hit = point_distance(x, y, obj_enemy.x, obj_enemy.y); // <46
-		if (hit <= 46) {
+		if (hit <= 8) {
 			show_debug_message(hit);
 			active = false;
 		}
 
 		// trail effect
+		/*
 		var trail = instance_create_depth(x, y, depth, obj_projectile_trail)
 		trail.sprite_index= sprite_trail;
 		trail.image_blend = c_white;
 		trail.image_alpha = 0.8;
 		trail.dir = dir;
 		trail.image_angle = dir - 90;
+		*/
 	}
 
 }

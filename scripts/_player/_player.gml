@@ -3,7 +3,7 @@ function PLAYER()
 	constructor {
 		/* variables */
 		object= obj_player;
-	    move_speed= 8;
+	    move_speed= 2;
 		horz =0;
 		vert =0;
 		dash_dur = 0;
@@ -100,7 +100,7 @@ function _player_state_init(){
 	// MOVE
 	move_state = new state(
 	    function() { 
-			move_speed = 8; 
+			move_speed = 2; 
 		},
 	    function() {
 	        horz = (keyboard_check(ord("D")) - keyboard_check(ord("A"))) * move_speed;
@@ -134,8 +134,8 @@ function _player_state_init(){
 	dash_state = new state(
 		function() {
 			dash_cooldown = 30;
+			move_speed = 4;
 			dash_dur = move_speed * 1.5;
-			move_speed = 16;
 		},
 		
 		function() {
@@ -145,8 +145,8 @@ function _player_state_init(){
 			// trail effect
 			with (instance_create_depth(object.x, object.y, object.depth+1, obj_player_dash_trail)){
 				sprite_index = other.sprite_index;
-				//image_blend = c_silver;
-				image_blend = c_fuchsia;
+				image_blend = c_silver;
+				//image_blend = c_fuchsia;
 				image_alpha = 0.7;
 			}
 			

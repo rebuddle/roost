@@ -66,8 +66,8 @@ function WEAPON(_name, _type, _damage, _attack_speed, _range, _slash_speed, _spr
 // initialize weapon list
 global.weapon_list = {
 		// weapons // _name, _type, _damage, _attack_speed, _range, _spr_slash
-	    "sword": new WEAPON("sword", "weapon", 3, 3, 18, 25, spr_sword, spr_sword_trail, 0, 1),
-		"staff": new WEAPON("staff", "weapon", 3, 2, 45, 8, spr_staff, spr_staff_trail, 1, 4)
+	    "sword": new WEAPON("sword", "weapon", 3, 3, 5, 4, spr_sword, spr_sword_trail, 0, 1),
+		"staff": new WEAPON("staff", "weapon", 3, 2, 15, 4, spr_staff, spr_staff_trail, 0, 1)
 };
 
 
