@@ -22,6 +22,6 @@ function _add_enemy(_name, _max_hp, _move_speed, _damage, _attack_speed, _defenc
 
 // build out armor
 global.enemy_list = {
-		"green_box": _add_enemy("Green Box", 4, 4, 1, 1, 0, obj_enemy, spr_enemy),
-		"pink_box": _add_enemy("Pink Box", 10, 4, 1, 1, 0, obj_enemy, spr_enemy_1)
+		"green_box": _add_enemy("Green Box", 4, 4, 1, 1, 0, obj_enemy, spr_enemy_zombie_front),
+		"pink_box": _add_enemy("Pink Box", 10, 4, 1, 1, 0, obj_enemy, spr_enemy_rogue_front)
 };
