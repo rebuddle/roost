@@ -1,3 +1,8 @@
+// cooldowns
+//player.cooldowns();
+
+// state machine
+enemy.update();
 
 // move towards player
 // taking damage

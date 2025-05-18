@@ -45,7 +45,6 @@ function PLAYER()
 		player_movement = function () {
 			// get input
 			var _mdir = point_direction(0, 0, horz, vert);
-			dir_index = _mdir div 90;
 			
 			// normalize distance
 			var _dist = point_distance(0, 0, horz, vert);
@@ -90,31 +89,31 @@ function PLAYER()
 function _player_state_init(){
 	// IDLE
 	idle_state = new state(
-		    function() { // start
-		        // insert sprite
-				sprite_index = [spr_rogue_idle_right, spr_rogue_idle_up, spr_rogue_idle_left, spr_rogue_idle_down];;
-				image_index = 0;
-				frame = 0;
-		    },
-		    function() { // step
-		        horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
-		        vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
-				att_key = mouse_check_button(mb_left);
+		function() { // start
+		    // insert sprite
+			sprite_index = [spr_rogue_idle_right, spr_rogue_idle_up, spr_rogue_idle_left, spr_rogue_idle_down];;
+			image_index = 0;
+			frame = 0;
+		},
+		function() { // step
+		    horz = (keyboard_check(ord("D")) - keyboard_check(ord("A")));
+		    vert = (keyboard_check(ord("S")) - keyboard_check(ord("W")));
+			att_key = mouse_check_button(mb_left);
 		
-				// trigger attack
-				if (att_key) {
-					sprite_index = [spr_rogue_attack_right, spr_rogue_attack_up, spr_rogue_attack_left, spr_rogue_attack_down];
-					player_attack();
-				} else {
-					sprite_index = [spr_rogue_idle_right, spr_rogue_idle_up, spr_rogue_idle_left, spr_rogue_idle_down];
-				}
+			// trigger attack
+			if (att_key) {
+				sprite_index = [spr_rogue_attack_right, spr_rogue_attack_up, spr_rogue_attack_left, spr_rogue_attack_down];
+				player_attack();
+			} else {
+				sprite_index = [spr_rogue_idle_right, spr_rogue_idle_up, spr_rogue_idle_left, spr_rogue_idle_down];
+			}
 		
-				// trigger movement
-		        if (abs(horz) > 0 || abs(vert) > 0) {
-		            fsm.change_state("move");
-		        }
+			// trigger movement
+		    if (abs(horz) > 0 || abs(vert) > 0) {
+		        fsm.change_state("move");
 		    }
-		);
+		}
+	);
 
 	// MOVE
 	move_state = new state(
@@ -149,7 +148,8 @@ function _player_state_init(){
 	            fsm.change_state("idle");
 				return;
 	        }
-
+			
+			dir_index = point_direction(0, 0, horz, vert) div 90;
 	        player_movement();
 	    }
 	);
@@ -168,7 +168,7 @@ function _player_state_init(){
 		
 			// trail effect
 			with (instance_create_depth(object.x, object.y, object.depth+1, obj_player_dash_trail)){
-				sprite_index = spr_rogue_idle_down;
+				sprite_index = other.sprite_index[other.dir_index]; //spr_rogue_idle_down;
 				image_blend = c_silver;
 				//image_blend = c_fuchsia;
 				image_alpha = 0.7;

@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy_rogue_front",
-    "path":"sprites/spr_enemy_rogue_front/spr_enemy_rogue_front.yy",
+    "name":"spr_enemy_zombie_front",
+    "path":"sprites/spr_enemy_zombie_front/spr_enemy_zombie_front.yy",
   },
   "spriteMaskId":null,
   "visible":true,
