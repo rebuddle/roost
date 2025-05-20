@@ -11,7 +11,10 @@ function PLAYER()
 		max_hp = 6;
 		hp = max_hp;
 		weapon = global.weapon_list[$ "sword"];
-		sprite_index = [spr_rogue_idle_right, spr_rogue_idle_up, spr_rogue_idle_left, spr_rogue_idle_down];
+		sprite_idle = [spr_knight_idle_right, spr_knight_idle_up, spr_knight_idle_left, spr_knight_idle_down];
+		sprite_walk = [spr_knight_walk_right, spr_knight_walk_up, spr_knight_walk_left, spr_knight_walk_down];
+		sprite_attack = [spr_knight_attack_right, spr_knight_attack_up, spr_knight_attack_left, spr_knight_attack_down];
+		sprite_index = sprite_idle;
 		image_index = 0;
 		frame = 0;
 		dir_index = 0;
@@ -91,7 +94,7 @@ function _player_state_init(){
 	idle_state = new state(
 		function() { // start
 		    // insert sprite
-			sprite_index = [spr_rogue_idle_right, spr_rogue_idle_up, spr_rogue_idle_left, spr_rogue_idle_down];;
+			sprite_index = sprite_idle;
 			image_index = 0;
 			frame = 0;
 		},
@@ -102,10 +105,10 @@ function _player_state_init(){
 		
 			// trigger attack
 			if (att_key) {
-				sprite_index = [spr_rogue_attack_right, spr_rogue_attack_up, spr_rogue_attack_left, spr_rogue_attack_down];
+				sprite_index = sprite_attack;
 				player_attack();
 			} else {
-				sprite_index = [spr_rogue_idle_right, spr_rogue_idle_up, spr_rogue_idle_left, spr_rogue_idle_down];
+				sprite_index = sprite_idle;
 			}
 		
 			// trigger movement
@@ -119,7 +122,7 @@ function _player_state_init(){
 	move_state = new state(
 	    function() { 
 			move_speed = 2; 
-			sprite_index = [spr_rogue_walk_right, spr_rogue_walk_up, spr_rogue_walk_left, spr_rogue_walk_down];
+			sprite_index = sprite_walk;
 			image_index = 0;
 			frame = 0;
 		},
@@ -131,10 +134,10 @@ function _player_state_init(){
 		
 			// trigger attack
 			if (att_key) {
-				sprite_index = [spr_rogue_attack_right, spr_rogue_attack_up, spr_rogue_attack_left, spr_rogue_attack_down];
+				sprite_index = sprite_attack;
 				player_attack();
 			} else {
-				sprite_index = [spr_rogue_walk_right, spr_rogue_walk_up, spr_rogue_walk_left, spr_rogue_walk_down];
+				sprite_index = sprite_walk;
 			}
 		
 			// trigger dash state

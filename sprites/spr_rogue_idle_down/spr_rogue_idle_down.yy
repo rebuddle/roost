@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"spr_rogue",
-    "path":"folders/Player/spr_rogue.yy",
+    "name":"rogue",
+    "path":"folders/Player/rogue.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -64,6 +64,11 @@ function _enemy_state_init(){
 			// increase frame
 			frame++;
 			
+			// animate
+			if (frame mod 12 == 0) {
+				image_index++;
+			}
+			
 			// trigger movement
 			if (frame > 60) {
 			    fsm.change_state("move");
@@ -80,6 +85,11 @@ function _enemy_state_init(){
 	    function() {
 			// increment
 			frame++;
+			
+			// animate
+			if (frame mod 12 == 0) {
+				image_index++;
+			}
 			
 			// trigger attack
 			
