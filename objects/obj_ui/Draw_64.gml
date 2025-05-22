@@ -14,8 +14,8 @@ if (!instance_exists(obj_player)) {
 	
 	/* Draw Hearts as HealthBar */
 	// draw hp
-	var heart_init_x = 32;
-	var heart_init_y  = 16;
+	var heart_init_x = 40;
+	var heart_init_y  = 24;
 	var heart_width = 64;
 	var heart_height = 64;
 	

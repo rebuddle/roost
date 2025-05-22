@@ -17,6 +17,9 @@ function ENEMY()
 		/* methods */
 		// draw sprite
 		draw= function() {
+			if (frame mod 12 == 0) {
+				image_index++;
+			}
 			// draw sprite and index
 			draw_sprite(sprite_index, image_index, object.x, object.y);
 		}
@@ -51,6 +54,14 @@ function ENEMY()
 			object.x+=_xsp;
 			object.y+=_ysp;
 		}
+		
+		// attack
+		enemy_attack = function() {
+			for (i=0;i<360;i+=30){
+				var blast = instance_create_depth(object.x, object.y, object.depth, obj_enemy_proj);
+				blast.theta = i;
+			}
+		}
 }
 
 function _enemy_state_init(){
@@ -59,15 +70,11 @@ function _enemy_state_init(){
 		function() { // start
 			// init vars
 			frame = 0;
+			show_debug_message("<Enemy> - Entering Idle State..."); 
 		},
 		function() { // step
 			// increase frame
 			frame++;
-			
-			// animate
-			if (frame mod 12 == 0) {
-				image_index++;
-			}
 			
 			// trigger movement
 			if (frame > 60) {
@@ -81,15 +88,11 @@ function _enemy_state_init(){
 	    function() { 
 			// init vars
 			frame = 0;
+			show_debug_message("<Enemy> - Entering Move State..."); 
 		},
 	    function() {
 			// increment
 			frame++;
-			
-			// animate
-			if (frame mod 12 == 0) {
-				image_index++;
-			}
 			
 			// trigger attack
 			
@@ -109,11 +112,19 @@ function _enemy_state_init(){
 	    function() { 
 			// init vars
 			frame = 0;
+			show_debug_message("<Enemy> - Entering Attack State..."); 
 		},
 	    function() {
+			frame++;
 			// trigger attack
+			if (frame mod 15 == 0){
+				enemy_attack();
+			}
 			
-			fsm.change_state("idle");
+			// change state
+			if (frame > 60){
+				fsm.change_state("idle");
+			}
 	    }
 	);
 
@@ -129,6 +140,8 @@ function _enemy_state_init(){
 	
 }
 
+
+/* OLD
 
 // function to build out enemies
 function _add_enemy(_name, _max_hp, _move_speed, _damage, _attack_speed, _defence, _obj_enemy, _spr_enemy) {
@@ -157,3 +170,4 @@ global.enemy_list = {
 		"green_box": _add_enemy("Green Box", 4, 4, 1, 1, 0, obj_enemy, spr_enemy_zombie_front),
 		"pink_box": _add_enemy("Pink Box", 10, 4, 1, 1, 0, obj_enemy, spr_enemy_rogue_front)
 };
+*/

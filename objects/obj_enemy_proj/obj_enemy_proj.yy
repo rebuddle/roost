@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_player",
+  "%Name":"obj_enemy_proj",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_player",
+  "name":"obj_enemy_proj",
   "overriddenProperties":[],
   "parent":{
-    "name":"Player",
-    "path":"folders/Player.yy",
+    "name":"Enemies",
+    "path":"folders/Enemies.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_knight_attack_down",
-    "path":"sprites/spr_knight_attack_down/spr_knight_attack_down.yy",
+    "name":"spr_enemy_proj",
+    "path":"sprites/spr_enemy_proj/spr_enemy_proj.yy",
   },
   "spriteMaskId":null,
   "visible":true,
