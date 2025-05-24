@@ -60,14 +60,15 @@ function PLAYER()
 			
 			// collision - !! Can be better !!
 			with (object){
-				if (place_meeting(x+_xsp, y, obj_wall)){
+				if (place_meeting(x+_xsp, y, obj_wall) || place_meeting(x+_xsp, y, obj_enemy)){
 					_xsp = 0;
 				}
-				if (place_meeting(x, y+_ysp, obj_wall)){
+				if (place_meeting(x, y+_ysp, obj_wall) || place_meeting(x, y+_ysp, obj_enemy)){
 					_ysp = 0;
 				}
-				if (place_meeting(x, y, obj_enemy)){
-					show_debug_message("OUCH!");	
+				if (place_meeting(x, y, obj_enemy_proj)){
+					instance_destroy(instance_nearest(x, y, obj_enemy_proj));
+					other.hp--;
 				}
 			}
 			

@@ -9,24 +9,37 @@ function ENEMY()
 		sprite_index = spr_enemy_zombie_front;
 		image_index = 0;
 		frame = 0;
-		//dir_index = 0;
+		bullet_speed = 2;
+		bullet_timer = 90;
 		
 		/* init */
 		_enemy_state_init();
 		
 		/* methods */
-		// draw sprite
+		// controller
+		update= function() {
+			frame++;
+			fsm.step();
+			
+			// hit by player
+			with (object){
+				if (place_meeting(x, y, obj_projectile)){
+					show_debug_message("<Enemy> - Hit by player!");
+				}
+			}
+		}
+		
+		// animation
 		draw= function() {
 			if (frame mod 12 == 0) {
 				image_index++;
 			}
 			// draw sprite and index
 			draw_sprite(sprite_index, image_index, object.x, object.y);
+			draw_hp();
 		}
 		
-		// state machine
-		update= fsm.step;
-		
+		/* helper functions */
 		// movement
 		enemy_movement = function () {
 			// get input
@@ -43,11 +56,15 @@ function ENEMY()
 			
 			// collision - !! Can be better !!
 			with (object){
-				if (place_meeting(x+_xsp, y, obj_wall)){
+				if (place_meeting(x+_xsp, y, obj_wall) || place_meeting(x+_xsp, y, obj_player)){
 					_xsp = 0;
 				}
-				if (place_meeting(x, y+_ysp, obj_wall)){
+				if (place_meeting(x, y+_ysp, obj_wall) || place_meeting(x, y+_ysp, obj_player)){
 					_ysp = 0;
+				}
+				if (place_meeting(x, y, obj_projectile)){
+					instance_destroy(instance_nearest(x, y, obj_projectile));
+					other.hp--;
 				}
 			}
 			// move
@@ -56,14 +73,49 @@ function ENEMY()
 		}
 		
 		// attack
-		enemy_attack = function() {
+		enemy_attack_explosion = function() {
 			for (i=0;i<360;i+=30){
 				var blast = instance_create_depth(object.x, object.y, object.depth, obj_enemy_proj);
-				blast.theta = i;
+				with (blast) {
+					// create
+					alarm[0]= other.bullet_timer;
+					bullet_speed = other.bullet_speed;
+					theta = other.i;
+					curve_coeff = other.curve_coeff;
+					frame = 0;
+					
+					// update
+					proj_path = proj_path_spiral; 
+				}
 			}
+		}
+		
+		draw_hp = function() {
+			// In the Draw Event
+			// Calculate the healthbar percentage
+			var health_percentage = (hp / max_hp) * 100;
+
+			// Draw the healthbar
+			draw_healthbar(object.x - 2.5, object.y + 5, object.x + 2, object.y + 5.5//x - 25, y - 20, x + 25, y - 10
+							,health_percentage, c_black, c_red, c_green
+							, 0, true, false);
 		}
 }
 
+
+
+/* projectile helper functions */
+function proj_path_spiral() {
+	frame++;
+	
+	var delta_x = lengthdir_x(bullet_speed, theta + frame*curve_coeff);
+	var delta_y = lengthdir_y(bullet_speed, theta + frame*curve_coeff);
+
+	x+=delta_x;
+	y+=delta_y;	
+}
+
+/* enemy state machine */
 function _enemy_state_init(){
 	// IDLE
 	idle_state = new state(
@@ -73,9 +125,6 @@ function _enemy_state_init(){
 			show_debug_message("<Enemy> - Entering Idle State..."); 
 		},
 		function() { // step
-			// increase frame
-			frame++;
-			
 			// trigger movement
 			if (frame > 60) {
 			    fsm.change_state("move");
@@ -91,18 +140,12 @@ function _enemy_state_init(){
 			show_debug_message("<Enemy> - Entering Move State..."); 
 		},
 	    function() {
-			// increment
-			frame++;
-			
 			// trigger attack
-			
-			// trigger idle
 			if (frame > 120) {
 				fsm.change_state("attack");	
 			}
 			
 			// movement
-			//dir_index = point_direction(0, 0, horz, vert) div 90;
 	        enemy_movement();
 		}
 	);
@@ -112,13 +155,13 @@ function _enemy_state_init(){
 	    function() { 
 			// init vars
 			frame = 0;
-			show_debug_message("<Enemy> - Entering Attack State..."); 
+			curve_coeff = random(3);
+			show_debug_message("<Enemy> - Entering Attack State...");
 		},
 	    function() {
-			frame++;
 			// trigger attack
 			if (frame mod 15 == 0){
-				enemy_attack();
+				enemy_attack_explosion();
 			}
 			
 			// change state
