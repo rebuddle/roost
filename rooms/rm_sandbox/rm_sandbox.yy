@@ -27,8 +27,8 @@
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"G_Base","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"G_Base","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":18,"SerialiseWidth":24,"TileCompressedData":[
           1,29,-22,30,2,31,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,
-          37,-9,9,-4,54,-9,9,2,39,37,-9,9,-4,54,-9,9,2,39,37,-9,9,-4,54,-9,9,2,39,37,-9,9,-4,54,-9,9,2,39,37,-22,
-          9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,45,-22,46,1,47,
+          37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,37,
+          -22,9,2,39,37,-22,9,2,39,37,-22,9,2,39,45,-22,46,1,47,
         ],"TileDataFormat":1,},"tilesetId":{"name":"ts_base","path":"tilesets/ts_base/ts_base.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],

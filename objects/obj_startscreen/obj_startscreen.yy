@@ -30,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_dev_timer_1",
+    "path":"sprites/spr_dev_timer_1/spr_dev_timer_1.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

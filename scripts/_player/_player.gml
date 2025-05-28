@@ -36,7 +36,12 @@ function PLAYER()
 	    }
 		
 		// state machine
-		update= fsm.step;
+		update= function() {			
+			// action
+			fsm.step();
+			// cleanup
+			take_damage();
+		}
 		
 		// attack
 		player_attack = function () {
@@ -66,16 +71,30 @@ function PLAYER()
 				if (place_meeting(x, y+_ysp, obj_wall) || place_meeting(x, y+_ysp, obj_enemy)){
 					_ysp = 0;
 				}
-				if (place_meeting(x, y, obj_enemy_proj)){
-					instance_destroy(instance_nearest(x, y, obj_enemy_proj));
-					other.hp--;
-				}
 			}
-			
 			
 			// move
 			object.x+=_xsp;
 			object.y+=_ysp;
+		}
+		
+		take_damage = function() {
+			// take damage
+			if (instance_exists(obj_enemy_proj)){
+				with (object) {
+					if (place_meeting(x, y, obj_enemy_proj)){
+						instance_destroy(instance_nearest(x, y, obj_enemy_proj));
+						instance_create_depth(x, y, depth, obj_playerhit);
+						other.hp--;
+					}
+				}
+			}
+			
+			/* delete player on loss
+			if (hp <= 0){
+				show_debug_message("YOU LOSE!!")	
+			}
+			*/
 		}
 		
 		// cooldowns

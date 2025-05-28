@@ -4,7 +4,7 @@ function ENEMY()
 		/* variables */
 		object= obj_enemy;
 		move_speed= 1;
-		max_hp = 6;
+		max_hp = 8;
 		hp = max_hp;
 		sprite_index = spr_enemy_zombie_front;
 		image_index = 0;
@@ -18,15 +18,14 @@ function ENEMY()
 		/* methods */
 		// controller
 		update= function() {
+			// vars
 			frame++;
+			
+			// actions
 			fsm.step();
 			
-			// hit by player
-			with (object){
-				if (place_meeting(x, y, obj_projectile)){
-					show_debug_message("<Enemy> - Hit by player!");
-				}
-			}
+			// clean up
+			take_damage();
 		}
 		
 		// animation
@@ -62,11 +61,8 @@ function ENEMY()
 				if (place_meeting(x, y+_ysp, obj_wall) || place_meeting(x, y+_ysp, obj_player)){
 					_ysp = 0;
 				}
-				if (place_meeting(x, y, obj_projectile)){
-					instance_destroy(instance_nearest(x, y, obj_projectile));
-					other.hp--;
-				}
 			}
+			
 			// move
 			object.x+=_xsp;
 			object.y+=_ysp;
@@ -83,7 +79,6 @@ function ENEMY()
 					theta = other.i;
 					curve_coeff = other.curve_coeff;
 					frame = 0;
-					
 					// update
 					proj_path = proj_path_spiral; 
 				}
@@ -94,14 +89,30 @@ function ENEMY()
 			// In the Draw Event
 			// Calculate the healthbar percentage
 			var health_percentage = (hp / max_hp) * 100;
-
 			// Draw the healthbar
 			draw_healthbar(object.x - 2.5, object.y + 5, object.x + 2, object.y + 5.5//x - 25, y - 20, x + 25, y - 10
 							,health_percentage, c_black, c_red, c_green
 							, 0, true, false);
 		}
+		
+		take_damage = function(){
+			// hit by player
+			if instance_exists(obj_projectile){
+				var hit = point_distance(object.x, object.y, obj_projectile.x, obj_projectile.y); // <46
+				if (hit <= 15) {
+					show_debug_message("<Enemy> - Hit by player!" + string(hp));
+					instance_destroy(instance_nearest(object.x, object.y, obj_projectile));
+					instance_create_depth(object.x, object.y, object.depth, obj_enemyhit);
+					hp--;
+				}
+			}
+			// enemy destroyed
+			if (hp <= 0){
+				instance_destroy(obj_enemy);
+				return;
+			}
+		}
 }
-
 
 
 /* projectile helper functions */
@@ -122,7 +133,7 @@ function _enemy_state_init(){
 		function() { // start
 			// init vars
 			frame = 0;
-			show_debug_message("<Enemy> - Entering Idle State..."); 
+			//show_debug_message("<Enemy> - Entering Idle State..."); 
 		},
 		function() { // step
 			// trigger movement
@@ -137,7 +148,7 @@ function _enemy_state_init(){
 	    function() { 
 			// init vars
 			frame = 0;
-			show_debug_message("<Enemy> - Entering Move State..."); 
+			//show_debug_message("<Enemy> - Entering Move State..."); 
 		},
 	    function() {
 			// trigger attack
@@ -156,7 +167,7 @@ function _enemy_state_init(){
 			// init vars
 			frame = 0;
 			curve_coeff = random(3);
-			show_debug_message("<Enemy> - Entering Attack State...");
+			//show_debug_message("<Enemy> - Entering Attack State...");
 		},
 	    function() {
 			// trigger attack
@@ -182,35 +193,3 @@ function _enemy_state_init(){
 	fsm.change_state("idle");	
 	
 }
-
-
-/* OLD
-
-// function to build out enemies
-function _add_enemy(_name, _max_hp, _move_speed, _damage, _attack_speed, _defence, _obj_enemy, _spr_enemy) {
-    return {
-        name: _name,
-		max_hp: _max_hp,
-		move_speed: _move_speed,
-		damage: _damage,
-		attack_speed: _attack_speed,
-		defence: _defence,
-		enemy_object: _obj_enemy,
-		enemy_sprite: _spr_enemy,
-		
-		spawn: function(_x, _y, _depth) {
-			var enemy = instance_create_depth(_x, _y, _depth+1, self.enemy_object);
-			enemy.max_hp = self.max_hp;
-			enemy.hp = self.max_hp;
-			enemy.move_speed = self.move_speed;
-			enemy.sprite_index = self.enemy_sprite;
-		}
-    };
-}
-
-// build out armor
-global.enemy_list = {
-		"green_box": _add_enemy("Green Box", 4, 4, 1, 1, 0, obj_enemy, spr_enemy_zombie_front),
-		"pink_box": _add_enemy("Pink Box", 10, 4, 1, 1, 0, obj_enemy, spr_enemy_rogue_front)
-};
-*/

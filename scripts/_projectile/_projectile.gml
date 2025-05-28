@@ -35,15 +35,6 @@ function PROJECTILE() constructor {
 		var xspd = lengthdir_x( spd, dir);
 		var yspd = lengthdir_y( spd, dir);
 		
-		/*
-		if (t >= range div 2)
-		{
-			curve_coeff *= -1;
-			t = 0;
-		}
-		t++;
-		*/
-		
 		var proj_angle = -180*(curve_coeff/num_shots) + 90
 	
 		var perp_x = lengthdir_x(spd, dir + proj_angle);
@@ -52,19 +43,22 @@ function PROJECTILE() constructor {
 		x += xspd + perp_x*amplitude;
 		y += yspd + perp_y*amplitude;
 
+		/*
 		with (object) {
 			if (place_meeting(x, y, obj_enemy)) {
 				show_debug_message("BING!");
 			}
 		}
+		*/
 		
-		
+		/*
 		// collision with drawing
 		var hit = point_distance(x, y, obj_enemy.x, obj_enemy.y); // <46
 		if (hit <= 8) {
 			show_debug_message(hit);
 			active = false;
 		}
+		*/
 
 		// trail effect
 		var trail = instance_create_depth(x, y, depth, obj_projectile_trail)
