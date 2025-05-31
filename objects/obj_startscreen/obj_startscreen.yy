@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_dev_timer_1",
-    "path":"sprites/spr_dev_timer_1/spr_dev_timer_1.yy",
+    "name":"spr_loading",
+    "path":"sprites/spr_loading/spr_loading.yy",
   },
   "spriteMaskId":null,
   "visible":true,
