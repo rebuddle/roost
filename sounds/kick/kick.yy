@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"kick",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.29378685,
+  "exportDir":"",
+  "name":"kick",
+  "parent":{
+    "name":"Roost",
+    "path":"Roost.yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"kick.wav",
+  "volume":1.0,
+}

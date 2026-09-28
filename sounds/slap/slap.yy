@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"slap",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.6849887,
+  "exportDir":"",
+  "name":"slap",
+  "parent":{
+    "name":"Roost",
+    "path":"Roost.yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"slap.wav",
+  "volume":1.0,
+}

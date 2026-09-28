@@ -4,7 +4,7 @@ function ENEMY()
 		/* variables */
 		object= obj_enemy;
 		move_speed= 1;
-		max_hp = 8;
+		max_hp = 16;
 		hp = max_hp;
 		sprite_index = spr_enemy_zombie_front;
 		image_index = 0;
@@ -90,7 +90,7 @@ function ENEMY()
 			// Calculate the healthbar percentage
 			var health_percentage = (hp / max_hp) * 100;
 			// Draw the healthbar
-			draw_healthbar(object.x - 2.5, object.y + 5, object.x + 2, object.y + 5.5//x - 25, y - 20, x + 25, y - 10
+			draw_healthbar( (room_width/6)*2, room_height/100, (room_width/6)*4, room_height/100 + (room_height/20) //127, 7, 255, 15//object.x - 2.5, object.y + 5, object.x + 2, object.y + 5.5//x - 25, y - 20, x + 25, y - 10
 							,health_percentage, c_black, c_red, c_green
 							, 0, true, false);
 		}

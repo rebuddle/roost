@@ -14,16 +14,16 @@ if (!instance_exists(obj_player)) {
 	
 	/* Draw Hearts as HealthBar */
 	// draw hp
-	var heart_init_x = 40;
-	var heart_init_y  = 24;
+	var heart_init_x = 0//40;
+	var heart_init_y  = -8//24;
 	var heart_width = 64;
 	var heart_height = 64;
 	
 	// draw background
-	draw_set_alpha(0.5);
-	draw_set_color(c_white);
-	draw_rectangle(heart_init_x - 6, heart_init_y + 12, heart_init_x + (obj_player.player.max_hp/2)*heart_width + 4 ,heart_init_y + heart_height + 6, false);
-	draw_set_alpha(1);
+	//draw_set_alpha(0.5);
+	//draw_set_color(c_white);
+	//draw_rectangle(heart_init_x - 6, heart_init_y + 12, heart_init_x + (obj_player.player.max_hp/2)*heart_width + 4 ,heart_init_y + heart_height + 6, false);
+	//draw_set_alpha(1);
 
 	// drawing the current number of lives
 	for (var i = 0; i < obj_player.player.max_hp; i+=2) {

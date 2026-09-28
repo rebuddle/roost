@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Week_22___The_Walking_Dunes_UNBLINKING_SUN",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":15.0,
+  "exportDir":"",
+  "name":"Week_22___The_Walking_Dunes_UNBLINKING_SUN",
+  "parent":{
+    "name":"World",
+    "path":"folders/World.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Week_22___The_Walking_Dunes_UNBLINKING_SUN.ogg",
+  "volume":1.0,
+}

@@ -54,10 +54,12 @@ function PLAYER()
                 image_angle: point_direction(object.x, object.y, mouse_x, mouse_y) - 90
                 });
             
-            projectile.alarm[0] = 24;
+            projectile.alarm[0] = 18;
             
             // set attack cooldown
-            attack_cooldown = 10;
+            attack_cooldown = 20;
+            sprite_index = sprite_attack;
+            audio_play_sound(swipe, 50, false, .5);
 
 		}
 	
