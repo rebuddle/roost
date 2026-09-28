@@ -1,17 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_projectile",
+  "%Name":"obj_dummy",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_projectile",
+  "name":"obj_dummy",
   "overriddenProperties":[],
   "parent":{
-    "name":"Weapons",
-    "path":"folders/Weapons.yy",
+    "name":"Enemies",
+    "path":"folders/Enemies.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,7 +31,13 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
-  "spriteMaskId":null,
+  "spriteId":{
+    "name":"spr_pinkball",
+    "path":"sprites/spr_pinkball/spr_pinkball.yy",
+  },
+  "spriteMaskId":{
+    "name":"spr_pinkball",
+    "path":"sprites/spr_pinkball/spr_pinkball.yy",
+  },
   "visible":true,
 }

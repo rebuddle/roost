@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"_projectile",
+  "%Name":"_weapon_backup",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"_projectile",
+  "name":"_weapon_backup",
   "parent":{
     "name":"Archive",
     "path":"folders/Weapons/Archive.yy",

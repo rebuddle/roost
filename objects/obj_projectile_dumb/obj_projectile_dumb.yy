@@ -10,8 +10,8 @@
   "name":"obj_projectile_dumb",
   "overriddenProperties":[],
   "parent":{
-    "name":"Weapons",
-    "path":"folders/Weapons.yy",
+    "name":"Archive",
+    "path":"folders/Weapons/Archive.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,0 +1,2 @@
+// state machine
+//enemy.update();

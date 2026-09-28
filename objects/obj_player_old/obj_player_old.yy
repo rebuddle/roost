@@ -10,8 +10,8 @@
   "name":"obj_player_old",
   "overriddenProperties":[],
   "parent":{
-    "name":"Player",
-    "path":"folders/Player.yy",
+    "name":"Archive",
+    "path":"folders/Player/Archive.yy",
   },
   "parentObjectId":null,
   "persistent":false,

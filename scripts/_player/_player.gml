@@ -10,7 +10,6 @@ function PLAYER()
 		dash_cooldown= 0;
 		max_hp = 6;
 		hp = max_hp;
-		weapon = global.weapon_list[$ "sword"];
 		sprite_idle = [spr_knight_idle_right, spr_knight_idle_up, spr_knight_idle_left, spr_knight_idle_down];
 		sprite_walk = [spr_knight_walk_right, spr_knight_walk_up, spr_knight_walk_left, spr_knight_walk_down];
 		sprite_attack = [spr_knight_attack_right, spr_knight_attack_up, spr_knight_attack_left, spr_knight_attack_down];
@@ -18,6 +17,7 @@ function PLAYER()
 		image_index = 0;
 		frame = 0;
 		dir_index = 0;
+        attack_cooldown = 0;
 		
 		/* initialization */
 		_player_state_init();
@@ -46,7 +46,19 @@ function PLAYER()
 		// attack
 		player_attack = function () {
 			dir_index = point_direction(object.x, object.y, mouse_x, mouse_y) div 90; 
-			weapon.attack();
+            
+            var projectile = instance_create_depth(object.x, object.y, object.depth, obj_projectile, {
+                sprite_index: spr_sword_alt,
+                speed: 2,
+                direction: point_direction(object.x, object.y, mouse_x, mouse_y),
+                image_angle: point_direction(object.x, object.y, mouse_x, mouse_y) - 90
+                });
+            
+            projectile.alarm[0] = 24;
+            
+            // set attack cooldown
+            attack_cooldown = 10;
+
 		}
 	
 		// movement
@@ -103,8 +115,8 @@ function PLAYER()
 			if dash_cooldown > 0 {
 				dash_cooldown--;
 			}
-			if (weapon) {
-				weapon.cooldowns();	
+			if attack_cooldown > 0 {
+				attack_cooldown--;
 			}
 		}
 }
@@ -124,7 +136,7 @@ function _player_state_init(){
 			att_key = mouse_check_button(mb_left);
 		
 			// trigger attack
-			if (att_key) {
+			if (!attack_cooldown && att_key) {
 				sprite_index = sprite_attack;
 				player_attack();
 			} else {
@@ -153,7 +165,7 @@ function _player_state_init(){
 			att_key = mouse_check_button(mb_left);
 		
 			// trigger attack
-			if (att_key) {
+			if (!attack_cooldown && att_key) {
 				sprite_index = sprite_attack;
 				player_attack();
 			} else {
