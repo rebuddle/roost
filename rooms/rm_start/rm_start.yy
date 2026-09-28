@@ -33,7 +33,7 @@
   "name":"rm_start",
   "parent":{
     "name":"Rooms",
-    "path":"folders/World/Rooms.yy",
+    "path":"folders/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

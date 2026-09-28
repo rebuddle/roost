@@ -1,15 +1,16 @@
 {
   "FolderOrderSettings":[
-    {"name":"__DEV","order":7,"path":"folders/__DEV.yy",},
-    {"name":"Enemies","order":5,"path":"folders/Enemies.yy",},
+    {"name":"__DEV","order":6,"path":"folders/__DEV.yy",},
+    {"name":"Enemies","order":4,"path":"folders/Enemies.yy",},
     {"name":"Player","order":1,"path":"folders/Player.yy",},
     {"name":"knight","order":10,"path":"folders/Player/knight.yy",},
     {"name":"rogue","order":9,"path":"folders/Player/rogue.yy",},
-    {"name":"UI","order":4,"path":"folders/UI.yy",},
-    {"name":"Utilities","order":8,"path":"folders/Utilities.yy",},
-    {"name":"Weapons","order":6,"path":"folders/Weapons.yy",},
+    {"name":"UI","order":3,"path":"folders/UI.yy",},
+    {"name":"Utilities","order":7,"path":"folders/Utilities.yy",},
+    {"name":"Weapons","order":5,"path":"folders/Weapons.yy",},
     {"name":"World","order":2,"path":"folders/World.yy",},
     {"name":"Boss Room","order":2,"path":"folders/World/Boss Room.yy",},
+    {"name":"Rooms","order":8,"path":"folders/Rooms.yy",},
   ],
   "ResourceOrderSettings":[
     {"name":"obj_enemy_proj","order":7,"path":"objects/obj_enemy_proj/obj_enemy_proj.yy",},
